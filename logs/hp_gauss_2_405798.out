@@ -1,7 +1,0 @@
-Total configs: 64
-Trial Number : 0
-Run completed; saved to h5_results/hp_sweep_joint_gaussian.h5; trial=0lr=0.0001, cfg_user_critic={'embed_dim': 8, 'x_hidden_dim': 256, 'x_layers': 2, 'y_hidden_dim': 256, 'y_layers': 2, 'pair_hidden_dim': 16, 'pair_layers': 1}, cfg_user_dataset={'mi_bits': 2.0, 'latent_dim': 8}
-Run completed; saved to h5_results/hp_sweep_joint_gaussian.h5; trial=0lr=0.0001, cfg_user_critic={'embed_dim': 8, 'x_hidden_dim': 256, 'x_layers': 2, 'y_hidden_dim': 256, 'y_layers': 2, 'pair_hidden_dim': 16, 'pair_layers': 1}, cfg_user_dataset={'mi_bits': 2.0, 'latent_dim': 8}
-Run completed; saved to h5_results/hp_sweep_joint_gaussian.h5; trial=0lr=0.0001, cfg_user_critic={'embed_dim': 8, 'x_hidden_dim': 256, 'x_layers': 2, 'y_hidden_dim': 256, 'y_layers': 2, 'pair_hidden_dim': 64, 'pair_layers': 1}, cfg_user_dataset={'mi_bits': 2.0, 'latent_dim': 8}
-Run completed; saved to h5_results/hp_sweep_joint_gaussian.h5; trial=0lr=0.0001, cfg_user_critic={'embed_dim': 8, 'x_hidden_dim': 256, 'x_layers': 2, 'y_hidden_dim': 256, 'y_layers': 2, 'pair_hidden_dim': 64, 'pair_layers': 1}, cfg_user_dataset={'mi_bits': 2.0, 'latent_dim': 8}
-Run completed; saved to h5_results/hp_sweep_joint_gaussian.h5; trial=0lr=0.0001, cfg_user_critic={'embed_dim': 8, 'x_hidden_dim': 512, 'x_layers': 2, 'y_hidden_dim': 512, 'y_layers': 2, 'pair_hidden_dim': 16, 'pair_layers': 1}, cfg_user_dataset={'mi_bits': 2.0, 'latent_dim': 8}

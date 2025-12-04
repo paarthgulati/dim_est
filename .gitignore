@@ -1,23 +1,79 @@
-# Results
-h5_results/
-*.h5
-
-#Scratch
-scratch/
-
-# Python cache
+# -------------------------------
+# PYTHON BUILD / CACHE FILES
+# -------------------------------
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*.so
 
-# Jupyter
-.ipynb_checkpoints/
-
-# Environments
-.env
-.venv
-*.swp
-
-# VSCode
+# -------------------------------
+# EDITOR / IDE FILES
+# -------------------------------
 .vscode/
+.idea/
+*.swp
+*.swo
+
+# -------------------------------
+# JUPYTER NOTEBOOK GARBAGE
+# -------------------------------
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# -------------------------------
+# HDF5 / RESULTS / LARGE DATA
+# -------------------------------
+*.h5
+*.hdf5
+h5_results/
+results/
+outputs/
+
+# -------------------------------
+# SCRATCH / TEMP FILES
+# -------------------------------
+scratch_*.ipynb
+scratch.ipynb
+*.tmp
+*.temp
+
+# -------------------------------
+# LOG FILES
+# -------------------------------
+*.log
+logs/
+slurm-*.out
+slurm-*.err
+
+# -------------------------------
+# OS-SPECIFIC JUNK
+# -------------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------------
+# VIRTUAL ENVIRONMENTS
+# -------------------------------
+venv/
+.env/
+.venv/
+conda_env/
+*.egg-info/
+dist/
+build/
+
+# -------------------------------
+# BYTECODE / COMPILED MODELS
+# -------------------------------
+*.pkl
+*.pt
+*.pth
+*.joblib
+
+# -------------------------------
+# MISCELLANEOUS
+# -------------------------------
+*.zip
+*.tar.gz
+*.png
+*.svg
+*.pdf

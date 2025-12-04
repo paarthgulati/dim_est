@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/users/pgulat4/dimensionality_estimator_MI/run_hp_optim.py", line 68, in <module>
-    run_hp_sweep_joint_gaussian(latent_dim = 8, embed_dim = 10)
-  File "/users/pgulat4/dimensionality_estimator_MI/run_hp_optim.py", line 62, in run_hp_sweep_joint_gaussian
-    f"trial={trial_num}, seed={seed}, "
-NameError: name 'seed' is not defined

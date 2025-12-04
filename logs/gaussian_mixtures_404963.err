@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/users/pgulat4/dimensionality_estimator_MI/run_parameter_sweep_testing.py", line 149, in <module>
-    main()
-  File "/users/pgulat4/dimensionality_estimator_MI/run_parameter_sweep_testing.py", line 146, in main
-    raise ValueError(f"Unknown job: {args.job}")
-ValueError: Unknown job: gaussian_mixtures
