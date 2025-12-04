@@ -14,7 +14,6 @@ import argparse
 
 from run_dsib_infinite_data import *
 
-## TO-DO: Make dataclasses to keep track of all parameters for an experiment, maybe called experimentConfig, basically group all the loose parameters and separate dictionaries into one
 
 
 def run_parameter_sweep_swiss_roll():

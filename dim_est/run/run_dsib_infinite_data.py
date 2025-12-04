@@ -4,6 +4,8 @@ import random
 import copy
 import math
 import matplotlib.pyplot as plt
+from dataclasses import asdict
+from typing import Any, Dict, Optional
 
 from ..models.critic_builders import make_critic
 from ..models.models import DSIB
@@ -12,13 +14,79 @@ from ..datasets.data_generation import make_data_generator
 from ..utils.networks import teacher
 from ..config.critic_defaults import CRITIC_DEFAULTS
 from ..config.dataset_defaults import DATASET_DEFAULTS 
+from ..config.training_defaults import TRAINING_DEFAULTS 
+from ..config.experiment_config import (
+    DatasetConfig,
+    CriticConfig,
+    TrainingConfig,
+    ExperimentConfig,
+) 
+
 from ..utils.h5_result_store import H5ResultStore
 from ..utils.version_logs import get_git_commit_hash, is_dirty, get_git_diff
 
-## TO-DO: Add argparse to do this systematically when calling the run file from a job
-## TO-DO: Make dataclasses to keep track of all parameters for an experiment, maybe called experimentConfig, basically group all the loose parameters and separate dictionaries into one
+
+def set_seed(seed):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
 
 
+def merge_with_validation(defaults: dict, overrides: dict, error_prefix: str = "") -> dict:
+    merged = dict(defaults)
+    for k in overrides:
+        if k not in defaults:
+            prefix = (error_prefix + ": ") if error_prefix else ""
+            raise KeyError(
+                f"{prefix}Invalid override key '{k}'. "
+                f"Allowed keys: {list(defaults.keys())}"
+            )
+    merged.update(overrides)
+    return merged
+
+def make_experiment_config(
+    *,
+    dataset_type: str = "joint_gaussian",
+    critic_type: str = "hybrid",
+    setup: str = "infinite_data_iter",
+    outfile: str,
+    seed=int, 
+    dataset_overrides=None,
+    critic_overrides=None,
+    training_overrides=None,
+    optimizer_cls=torch.optim.Adam,
+) -> ExperimentConfig:
+
+    dataset_overrides = dataset_overrides or {}
+    critic_overrides = critic_overrides or {}
+    training_overrides = training_overrides or {}
+
+    # ---- merge dataset ----
+    ds_defaults = copy.deepcopy(DATASET_DEFAULTS[dataset_type])
+    ds_cfg = merge_with_validation(ds_defaults, dataset_overrides, "dataset overrides")
+
+    # ---- merge critic ----
+    cr_defaults = copy.deepcopy(CRITIC_DEFAULTS[critic_type])
+    cr_cfg = merge_with_validation(cr_defaults, critic_overrides, "critic overrides")
+
+    # ---- merge training ----
+    tr_defaults = copy.deepcopy(TRAINING_DEFAULTS[setup])
+    tr_cfg = merge_with_validation(tr_defaults, training_overrides, "training overrides")
+
+    # attach optimizer name --- not in the default training dict. To cahnge optimizer pass it through the run function
+    tr_cfg["optimizer_cls_name"] = optimizer_cls.__name__
+
+    # ---- assemble experiment config ----
+    return ExperimentConfig(
+        dataset=DatasetConfig(dataset_type=dataset_type, cfg=ds_cfg),
+        critic=CriticConfig(critic_type=critic_type, cfg=cr_cfg),
+        training=TrainingConfig(setup=setup, cfg=tr_cfg),
+        outfile=outfile,
+        seed=seed
+    )
+    
 def create_teacher_models_symmetric(input_dim: int, output_dim: int, device='cuda'):
     teacher_model_x = teacher(dz=input_dim, output_dim=output_dim)
     teacher_model_y = teacher(dz=input_dim, output_dim=output_dim)
@@ -33,32 +101,32 @@ def create_teacher_models_symmetric(input_dim: int, output_dim: int, device='cud
 
     return teacher_model_x, teacher_model_y
 
-
-
-def set_seed(seed):
-    random.seed(seed)
-    np.random.seed(seed)
-    torch.manual_seed(seed)
-    if torch.cuda.is_available():
-        torch.cuda.manual_seed_all(seed)
-
+def save_run(outfile, tags, params, **arrays):
+    """
+    Small convenience wrapper around H5ResultStore.
+    - outfile: path to the .h5 file
+    - tags:    dict, used for querying/grouping
+    - params:  dict, full config/meta (e.g. asdict(exp_cfg), code info, etc.)
+    - arrays:  any named numpy arrays to save, e.g. mi_bits=..., loss=...
+    """
+    with H5ResultStore(outfile) as rs:
+        rid = rs.new_run(params=params, tags=tags, dedupe_on_fingerprint=False)
+        for name, arr in arrays.items():
+            rs.save_array(rid, name, arr)
+    return rid
 
 
 def run_single_experiment_dsib_infinite(
-    estimator: str = "lclip",
-    critic_type = "hybrid",
-    batch_size=128,
-    n_iter=2000,
-    dataset_type = "gaussian_mixture",
-    seed = None,
-    outfile = "h5_results/test_output.h5",
+    dataset_type: str = "gaussian_mixture",
+    critic_type: str = "hybrid",
+    setup: str ="infinite_data_iter",
+    outfile: str = "h5_results/test_output.h5",
+    dataset_overrides=None,  #override options 
+    critic_overrides= None,  #override options
+    training_overrides= None,  #override options
+    seed: Optional[int] = None,
     optimizer_cls=torch.optim.Adam, 
-    lr=5e-4, 
-    optimizer_kwargs=None, 
-    cfg_user_dataset=None,  #override options 
-    cfg_user_critic= None,  #override options
-    show_progress = True, 
-    device = 'cuda'
+    device = 'cuda',
 ):
     ## initialize seed
     if seed is None:
@@ -66,82 +134,84 @@ def run_single_experiment_dsib_infinite(
 
     set_seed(seed)
 
-    # create dataset and critic configurations: override defaults with user inputs
-    dataset_cfg = copy.deepcopy(DATASET_DEFAULTS[dataset_type])
-    if cfg_user_dataset:
-        dataset_cfg.update(cfg_user_dataset)
+    # Build a complete experiment config using user inputs and default values
+    exp_cfg = make_experiment_config(setup = setup, dataset_type=dataset_type, critic_type=critic_type, dataset_overrides=dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides, seed=seed, outfile=outfile)
 
-    critic_cfg = copy.deepcopy(CRITIC_DEFAULTS[critic_type])
-    if cfg_user_critic:
-        critic_cfg.update(cfg_user_critic)
+    # unpack dictionaries from exp_cfg
+    dataset_cfg = exp_cfg.dataset.cfg
+    critic_cfg = exp_cfg.critic.cfg
+    training_cfg = exp_cfg.training.cfg
+
+
+    ## suppress all of this seciton below in create_data_generators
+
+    # for now we only support infinite-data
+    if exp_cfg.training.setup != "infinite_data_iter":
+        raise ValueError(
+            f"run_single_experiment_dsib_infinite only supports setup='infinite_data_iter', "
+            f"got {exp_cfg.training.setup!r}"
+        )
+
+    estimator = training_cfg["estimator"]
+    device = training_cfg.get("device", device) ## need to be synced up across training, model and datasets
+
+
+    # Create dataset generator functions; Teacher models (symmetry assumption) ---------- ## no reason for these to have to be defined here. make this part of the data geenration process and save the important bits about this with the data_cfg dictionary
 
     dataset_latent_dim = dataset_cfg["latent_dim"]
     if dataset_cfg["observe_dim_x"] == dataset_cfg["observe_dim_y"]:
         dataset_observe_dim = dataset_cfg["observe_dim_x"]
     else:
-        raise ValueError(f"Output dim_x != Ouput dim_y, currently set up for a symmetric case only")    
-    
-    teacher_model_x, teacher_model_y = create_teacher_models_symmetric(input_dim = dataset_latent_dim, output_dim = dataset_observe_dim, device=device)
+        raise ValueError(
+            "Output dim_x != Ouput dim_y; currently set up for a symmetric case only"
+        )
+    teacher_model_x, teacher_model_y = create_teacher_models_symmetric(
+        input_dim=dataset_latent_dim,
+        output_dim=dataset_observe_dim,
+        device=device,
+    )
+    data_generator = make_data_generator(dataset_type, dataset_cfg, teacher_model_x, teacher_model_y)
 
     ##################################    
 
     critic, critic_params, critic_tags = make_critic(critic_type, **critic_cfg) 
-    data_generator = make_data_generator(dataset_type, dataset_cfg, teacher_model_x, teacher_model_y)
 
     model = DSIB(estimator=estimator, critic=critic)
     
     ################TRAINING###########################
     
-    estimates_mi = train_model_infinite_data(model, data_generator, batch_size, n_iter, show_progress=show_progress, optimizer_cls=optimizer_cls, lr=lr, optimizer_kwargs=optimizer_kwargs, device=device)  
+    estimates_mi = train_model_infinite_data(model, data_generator, training_cfg, optimizer_cls=optimizer_cls, device=device)  
     # returns -mi in nats
     mis_dsib_bits = -np.array(estimates_mi)*np.log2(np.e)            
 
-    ##############SAVE_OUTPUTS#############################
+    ############## Create identifiers and save run #############################
 
     code_meta = {
     "git_commit": get_git_commit_hash(),
     "dirty": is_dirty(),
     }
-
     if code_meta["dirty"]:
         code_meta["dirty_diff"] = get_git_diff()
 
-    tags={
-        "method": "dsib",
-        "critic_type": critic_type,
-        "dataset_type": dataset_type,
-        "estimator": estimator,
 
-        "kz": critic_cfg.get("embed_dim", None),
-        "batch_size": batch_size,
-        "n_iter": n_iter,           
+    tags = {
+    "method": "dsib",
+    "dataset_type": dataset_type,
+    "critic_type": critic_type,
+    "setup": setup,
+    "kz": critic_cfg["embed_dim"],
+    "n_iter": training_cfg["n_iter"],
     }
 
-    params={
-        "method": "dsib",
-        "critic_type": critic_type,
-        "critic_cfg": critic_cfg,
-        "critic_params": critic_params,
-
-        "dataset_type": dataset_type,
-        "dataset_cfg": dataset_cfg,
-        "dataset_embed":"teacher",
-
-        "training_cfg": {
-            "setup": "infinite_data_iter",
-            "estimator": estimator, 
-            "batch_size": batch_size,
-            "n_iter": n_iter,
-            "optimizer": optimizer_cls.__name__,
-            "lr": lr,
-            "seed": seed,
-        },
-        "code": code_meta,
+    # rich params = full experiment config + extras 
+    params = {
+    "experiment_cfg": asdict(exp_cfg),      
+    "code": code_meta,
     }
 
-    with H5ResultStore(outfile) as rs:        
-        rid = rs.new_run(params=params, tags=tags, dedupe_on_fingerprint=False)
-        rs.save_array(rid, "mi_bits", mis_dsib_bits)
+    save_run(outfile=outfile, tags=tags, params=params, mi_bits=mis_dsib_bits)
 
-    return mis_dsib_bits
+    return 
+
+
 
