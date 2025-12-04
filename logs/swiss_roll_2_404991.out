@@ -1,0 +1,880 @@
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 2.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 2.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 0, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 1, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 2, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 3, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 4, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: hybrid;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5
+Override parameters: {'sig_embed': 5.0, 't_min_pi_units': 1.5, 't_max_pi_units': 3.5}
+Run with kz = 5, critic_type: separable;  dataset_type: swiss_roll; Saved to h5_results/testing_swiss_roll.h5

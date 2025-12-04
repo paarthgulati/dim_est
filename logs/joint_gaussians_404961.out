@@ -1,0 +1,1380 @@
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 2}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 4}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: hybrid;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 0, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 1, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 2, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 3, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 4, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 5, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 6, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 7, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 8, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 9, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 10, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5
+{'mi_bits': 2.0, 'latent_dim': 8}
+Run with kz = 11, critic_type: separable;  dataset_type: joint_gaussian; Saved to h5_results/testing_joint_gaussian.h5

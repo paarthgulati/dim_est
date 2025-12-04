@@ -1,0 +1,23 @@
+# Results
+h5_results/
+*.h5
+
+#Scratch
+scratch/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environments
+.env
+.venv
+*.swp
+
+# VSCode
+.vscode/
