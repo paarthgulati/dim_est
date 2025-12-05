@@ -117,53 +117,48 @@ def run_single_experiment_dsib_infinite(
     optimizer_cls=torch.optim.Adam, 
     device = 'cuda',
 ):
-    ## initialize seed
+    # 1. initialize seed
     if seed is None:
         seed = np.random.randint(0, 2**32 - 1) # log this seed in the h5 output and other trianing parameters
 
     set_seed(seed)
 
-    # Build a complete experiment config using user inputs and default values
+    # 2. Build experiment config
     exp_cfg = make_experiment_config(setup = setup, dataset_type=dataset_type, critic_type=critic_type, dataset_overrides=dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides, estimator=estimator, seed=seed, outfile=outfile)
 
-    # unpack dictionaries from exp_cfg
     dataset_cfg = exp_cfg.dataset.cfg
     critic_cfg = exp_cfg.critic.cfg
     training_cfg = exp_cfg.training.cfg
 
+    # ## temporary catch for unimplemented types -- clean up
+    # # for now we only support infinite-data
+    # if exp_cfg.training.setup != "infinite_data_iter":
+    #     raise ValueError(
+    #         f"run_single_experiment_dsib_infinite only supports setup='infinite_data_iter', "
+    #         f"got {exp_cfg.training.setup!r}"
+    #     )
 
-    # for now we only support infinite-data
-    if exp_cfg.training.setup != "infinite_data_iter":
-        raise ValueError(
-            f"run_single_experiment_dsib_infinite only supports setup='infinite_data_iter', "
-            f"got {exp_cfg.training.setup!r}"
-        )
+    # ## make device specification and use consistent across elements 
+    # device = training_cfg.get("device", device) ## need to be synced up across training, model and datasets
 
-    device = training_cfg.get("device", device) ## need to be synced up across training, model and datasets
-
+    # 3. Data Generation
     data_generator = make_data_generator(dataset_type, dataset_cfg, device = device)
 
-    ##################################    
-
-    critic, critic_params, critic_tags = make_critic(critic_type, critic_cfg) 
-
+    # 4. Build Network
+    critic, *_ = make_critic(critic_type, critic_cfg) 
     model = DSIB(estimator=estimator, critic=critic)
     
-    ################TRAINING###########################
-    
-    estimates_mi = train_model_infinite_data(model, data_generator, training_cfg, optimizer_cls=optimizer_cls, device=device)  
-    # returns -mi in nats
+    # 5. Training
+    estimates_mi = train_model_infinite_data(model, data_generator, training_cfg, optimizer_cls=optimizer_cls, device=device)  # returns -mi in nats -- clean this return maybe via mode or somethign
     mis_dsib_bits = -np.array(estimates_mi)*np.log2(np.e)            
 
-    ############## Save run params and output ##################
-    ## quick fields to help naviagte the output instead of nested dictionaries. Modify build function to change tags fields; all the information about the run is saved under params
+    # 6. Saving
+    ## quick fields to help navigate the output instead of nested dictionaries. Modify build function to change tags fields; all the information about the run is saved under params
     tags = _build_run_tags(method = 'dsib', dataset_type = dataset_type, critic_type = critic_type, setup = setup, critic_cfg = critic_cfg, training_cfg = training_cfg, estimator = estimator )
     params = _build_run_params(exp_cfg)
     save_run(outfile=outfile, tags=tags, params=params, mi_bits=mis_dsib_bits)
 
     return mis_dsib_bits
-
-
 
 
 
