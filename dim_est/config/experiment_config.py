@@ -54,8 +54,9 @@ class ExperimentConfig:
     dataset: DatasetConfig
     critic: CriticConfig
     training: TrainingConfig
-    outfile: str
+    outfile: str = "h5_results/test.h5"
     seed: Optional[int] = None
+    estimator: str = "lclip"
     # optional free-form description / extra tags
     description: Optional[str] = None
     extra_tags: Dict[str, Any] = field(default_factory=dict)

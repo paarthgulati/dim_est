@@ -52,6 +52,7 @@ def make_experiment_config(
     critic_type: str = "hybrid",
     setup: str = "infinite_data_iter",
     outfile: str,
+    estimator: str,
     seed=int, 
     dataset_overrides=None,
     critic_overrides=None,
@@ -125,6 +126,7 @@ def run_single_experiment_dsib_infinite(
     critic_overrides= None,  #override options
     training_overrides= None,  #override options
     seed: Optional[int] = None,
+    estimator = "lclip",
     optimizer_cls=torch.optim.Adam, 
     device = 'cuda',
 ):
@@ -135,7 +137,7 @@ def run_single_experiment_dsib_infinite(
     set_seed(seed)
 
     # Build a complete experiment config using user inputs and default values
-    exp_cfg = make_experiment_config(setup = setup, dataset_type=dataset_type, critic_type=critic_type, dataset_overrides=dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides, seed=seed, outfile=outfile)
+    exp_cfg = make_experiment_config(setup = setup, dataset_type=dataset_type, critic_type=critic_type, dataset_overrides=dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides, estimator=estimator, seed=seed, outfile=outfile)
 
     # unpack dictionaries from exp_cfg
     dataset_cfg = exp_cfg.dataset.cfg
@@ -152,7 +154,6 @@ def run_single_experiment_dsib_infinite(
             f"got {exp_cfg.training.setup!r}"
         )
 
-    estimator = training_cfg["estimator"]
     device = training_cfg.get("device", device) ## need to be synced up across training, model and datasets
 
 

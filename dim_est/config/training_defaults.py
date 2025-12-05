@@ -1,6 +1,5 @@
 TRAINING_DEFAULTS = {
     "infinite_data_iter": {
-        "estimator": "lclip",
         "batch_size": 128,
         "n_iter": 20_000,
         "lr": 5e-4,
