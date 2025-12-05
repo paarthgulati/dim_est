@@ -145,7 +145,7 @@ def run_single_experiment_dsib_infinite(
 
     ##################################    
 
-    critic, critic_params, critic_tags = make_critic(critic_type, **critic_cfg) 
+    critic, critic_params, critic_tags = make_critic(critic_type, critic_cfg) 
 
     model = DSIB(estimator=estimator, critic=critic)
     
@@ -192,9 +192,9 @@ def _build_run_tags(dataset_type: str, critic_type: str, setup: str, critic_cfg:
     }
 
 
-def _build_run_params(exp_cfg, code_meta: dict) -> dict:
+def _build_run_params(exp_cfg) -> dict:
     """Heavier structured metadata; full experiment config + code state."""
     return {
         "experiment_cfg": asdict(exp_cfg),
-        "code": _build_code_metadata,
+        "code": _build_code_metadata(),
     }

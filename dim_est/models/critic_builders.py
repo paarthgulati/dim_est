@@ -245,7 +245,7 @@ _CRITIC_BUILDERS = {
 }
 
 
-def make_critic(critic_type: str, **kwargs):
+def make_critic(critic_type: str, critic_cfg: dict):
     """
     Main entry point.
 
@@ -262,4 +262,6 @@ def make_critic(critic_type: str, **kwargs):
     """
     if critic_type not in _CRITIC_BUILDERS:
         raise ValueError(f"Unknown critic_type: {critic_type}")
-    return _CRITIC_BUILDERS[critic_type](**kwargs)
+
+    builder = _CRITIC_BUILDERS[critic_type]
+    return builder(**critic_cfg)
