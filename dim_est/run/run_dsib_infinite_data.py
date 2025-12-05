@@ -88,19 +88,6 @@ def make_experiment_config(
         seed=seed
     )
     
-def create_teacher_models_symmetric(input_dim: int, output_dim: int, device='cuda'):
-    teacher_model_x = teacher(dz=input_dim, output_dim=output_dim)
-    teacher_model_y = teacher(dz=input_dim, output_dim=output_dim)
-
-    teacher_model_x = teacher_model_x.to(device)
-    teacher_model_y = teacher_model_y.to(device)
-
-    for param_x in teacher_model_x.parameters():
-        param_x.requires_grad_(False)  # Freeze
-    for param_y in teacher_model_y.parameters():
-        param_y.requires_grad_(False)
-
-    return teacher_model_x, teacher_model_y
 
 def save_run(outfile, tags, params, **arrays):
     """
@@ -145,8 +132,6 @@ def run_single_experiment_dsib_infinite(
     training_cfg = exp_cfg.training.cfg
 
 
-    ## suppress all of this seciton below in create_data_generators
-
     # for now we only support infinite-data
     if exp_cfg.training.setup != "infinite_data_iter":
         raise ValueError(
@@ -156,22 +141,7 @@ def run_single_experiment_dsib_infinite(
 
     device = training_cfg.get("device", device) ## need to be synced up across training, model and datasets
 
-
-    # Create dataset generator functions; Teacher models (symmetry assumption) ---------- ## no reason for these to have to be defined here. make this part of the data geenration process and save the important bits about this with the data_cfg dictionary
-
-    dataset_latent_dim = dataset_cfg["latent_dim"]
-    if dataset_cfg["observe_dim_x"] == dataset_cfg["observe_dim_y"]:
-        dataset_observe_dim = dataset_cfg["observe_dim_x"]
-    else:
-        raise ValueError(
-            "Output dim_x != Ouput dim_y; currently set up for a symmetric case only"
-        )
-    teacher_model_x, teacher_model_y = create_teacher_models_symmetric(
-        input_dim=dataset_latent_dim,
-        output_dim=dataset_observe_dim,
-        device=device,
-    )
-    data_generator = make_data_generator(dataset_type, dataset_cfg, teacher_model_x, teacher_model_y)
+    data_generator = make_data_generator(dataset_type, dataset_cfg, device = device)
 
     ##################################    
 
@@ -212,7 +182,7 @@ def run_single_experiment_dsib_infinite(
 
     save_run(outfile=outfile, tags=tags, params=params, mi_bits=mis_dsib_bits)
 
-    return 
+    return mis_dsib_bits
 
 
 
