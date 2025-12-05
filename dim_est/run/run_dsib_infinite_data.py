@@ -155,34 +155,46 @@ def run_single_experiment_dsib_infinite(
     # returns -mi in nats
     mis_dsib_bits = -np.array(estimates_mi)*np.log2(np.e)            
 
-    ############## Create identifiers and save run #############################
-
-    code_meta = {
-    "git_commit": get_git_commit_hash(),
-    "dirty": is_dirty(),
-    }
-    if code_meta["dirty"]:
-        code_meta["dirty_diff"] = get_git_diff()
-
-
-    tags = {
-    "method": "dsib",
-    "dataset_type": dataset_type,
-    "critic_type": critic_type,
-    "setup": setup,
-    "kz": critic_cfg["embed_dim"],
-    "n_iter": training_cfg["n_iter"],
-    }
-
-    # rich params = full experiment config + extras 
-    params = {
-    "experiment_cfg": asdict(exp_cfg),      
-    "code": code_meta,
-    }
-
+    ############## Save run params and output ##################
+    ## quick fields to help naviagte the output instead of nested dictionaries. Modify build function to change tags fields; all the information about the run is saved under params
+    tags = _build_run_tags(method = 'dsib', dataset_type = dataset_type, critic_type = critic_type, setup = setup, critic_cfg = critic_cfg, training_cfg = training_cfg, estimator = estimator )
+    params = _build_run_params(exp_cfg)
     save_run(outfile=outfile, tags=tags, params=params, mi_bits=mis_dsib_bits)
 
     return mis_dsib_bits
 
 
 
+
+
+
+def _build_code_metadata() -> dict:
+    """Capture code-state metadata for reproducibility."""
+    code_meta = {
+        "git_commit": get_git_commit_hash(),
+        "dirty": is_dirty(),
+    }
+    if code_meta["dirty"]:
+        code_meta["dirty_diff"] = get_git_diff()
+    return code_meta
+
+
+def _build_run_tags(dataset_type: str, critic_type: str, setup: str, critic_cfg: dict, training_cfg: dict, method: str, estimator: str) -> dict:
+    """Lightweight, query-friendly tags for H5ResultStore."""
+    return {
+        "method": method, #dsib or whatever else
+        "estimator": estimator,
+        "dataset_type": dataset_type,
+        "critic_type": critic_type,
+        "setup": setup,
+        "kz": critic_cfg["embed_dim"],
+        "n_iter": training_cfg["n_iter"],
+    }
+
+
+def _build_run_params(exp_cfg, code_meta: dict) -> dict:
+    """Heavier structured metadata; full experiment config + code state."""
+    return {
+        "experiment_cfg": asdict(exp_cfg),
+        "code": _build_code_metadata,
+    }
