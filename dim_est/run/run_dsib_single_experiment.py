@@ -5,7 +5,7 @@ import copy
 import math
 import matplotlib.pyplot as plt
 from dataclasses import asdict
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Mapping
 
 from ..models.critic_builders import make_critic
 from ..models.models import DSIB
@@ -16,10 +16,7 @@ from ..config.critic_defaults import CRITIC_DEFAULTS
 from ..config.dataset_defaults import DATASET_DEFAULTS 
 from ..config.training_defaults import TRAINING_DEFAULTS 
 from ..config.experiment_config import (
-    DatasetConfig,
-    CriticConfig,
-    TrainingConfig,
-    ExperimentConfig,
+    DatasetConfig, CriticConfig, TrainingConfig, ExperimentConfig,
 ) 
 
 from ..utils.h5_result_store import H5ResultStore
@@ -75,7 +72,7 @@ def run_dsib_infinite(
     params = _build_run_params(exp_cfg)
     save_run(outfile=outfile, tags=tags, params=params, mi_bits=mis_dsib_bits)
 
-    return mis_dsib_bits
+    return mis_dsib_bits, exp_cfg
 
 def run_dsib_finite(
     dataset_type: str = "gaussian_mixture",
@@ -132,7 +129,7 @@ def run_dsib_finite(
     params = _build_run_params(exp_cfg)
     save_run(outfile=outfile, tags=tags, params=params, mi_bits_train=mis_dsib_bits_train, mi_bits_test=mis_dsib_bits_test)
 
-    return mis_dsib_bits_train, mis_dsib_bits_test
+    return [mis_dsib_bits_train, mis_dsib_bits_test], exp_cfg
 
 
 def set_seed(seed):
@@ -142,17 +139,53 @@ def set_seed(seed):
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(seed)
 
-def merge_with_validation(defaults: dict, overrides: dict, error_prefix: str = "") -> dict:
-    merged = dict(defaults)
-    for k in overrides:
+def merge_with_validation(
+    defaults: Mapping[str, Any],
+    overrides: Mapping[str, Any],
+    error_prefix: str = "",
+    _path: str = "",
+) -> dict:
+    """
+    Recursively merge `overrides` into `defaults`, validating keys.
+
+    - Any key in `overrides` that does not exist in `defaults` raises KeyError.
+    - If the default value is a dict, the override must also be a dict, and we recurse.
+    - Returns a *new* merged dict, does not mutate `defaults`.
+    """
+    # Always work on a deep copy so we never mutate the defaults in-place
+    merged = copy.deepcopy(defaults)
+
+    for k, v in overrides.items():
         if k not in defaults:
             prefix = (error_prefix + ": ") if error_prefix else ""
+            full_path = f"{_path}{k}"
             raise KeyError(
-                f"{prefix}Invalid override key '{k}'. "
-                f"Allowed keys: {list(defaults.keys())}"
+                f"{prefix}Invalid override key '{full_path}'. "
+                f"Allowed keys at this level: {list(defaults.keys())}"
             )
-    merged.update(overrides)
+
+        default_val = defaults[k]
+
+        # If the default is a dict, we expect a dict and recurse
+        if isinstance(default_val, dict):
+            if not isinstance(v, Mapping):
+                prefix = (error_prefix + ": ") if error_prefix else ""
+                full_path = f"{_path}{k}"
+                raise TypeError(
+                    f"{prefix}Override for '{full_path}' must be a mapping, "
+                    f"got {type(v).__name__}"
+                )
+
+            merged[k] = merge_with_validation(
+                default_val, v, error_prefix=error_prefix, _path=f"{_path}{k}."
+            )
+
+        else:
+            # Leaf value: just override
+            merged[k] = v
+
     return merged
+
 
 def make_experiment_config(
     *,
@@ -208,6 +241,8 @@ def save_run(outfile, tags, params, **arrays):
         rid = rs.new_run(params=params, tags=tags, dedupe_on_fingerprint=False)
         for name, arr in arrays.items():
             rs.save_array(rid, name, arr)
+    
+    print(f'Run completed; saved to {outfile}')
     return rid
 
 
@@ -229,8 +264,8 @@ def _build_run_tags(dataset_type: str, critic_type: str, setup: str, critic_cfg:
         length_key = "n_iter"
         length_val = training_cfg.get("n_iter", None)
     elif setup == "finite_data_epoch":
-        length_key = "n_epochs"
-        length_val = training_cfg.get("n_epochs", None)
+        length_key = "n_epoch"
+        length_val = training_cfg.get("n_epoch", None)
     else:
         raise ValueError(f"Unknown training setup: {setup}")
 

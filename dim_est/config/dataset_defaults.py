@@ -3,8 +3,8 @@ _TRANSFORM_PRESETS = {
         mode="teacher",
         observe_dim_x=500,
         observe_dim_y=500,
-        sig_embed_x=0.5,
-        sig_embed_y=0.5,
+        sig_embed_x=0.0,
+        sig_embed_y=0.0,
         noise_mode="white_relative",
     ),
     "identity": dict(
