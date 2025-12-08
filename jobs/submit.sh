@@ -12,4 +12,6 @@ conda init bash > /dev/null 2>&1
 source ~/.bashrc
 conda activate MI_estimation 
 
-python -u "$@"
+# python -u "$@"
+python -u -m "$1" "${@:2}"
+# Example usage: sbatch --job-name=inf_hypershell jobs/submit.sh dim_est.run.run_custom_sweeps --job hypershell
