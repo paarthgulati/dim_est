@@ -9,9 +9,9 @@ from typing import Any, Dict, Optional
 
 from ..models.critic_builders import make_critic
 from ..models.models import DSIB
-from ..training import train_model_infinite_data
+from ..training import train_model_infinite_data, train_model_finite_data
 from ..datasets.data_generation import make_data_generator
-from ..utils.networks import teacher
+from ..utils.networks import teacher, Dataset
 from ..config.critic_defaults import CRITIC_DEFAULTS
 from ..config.dataset_defaults import DATASET_DEFAULTS 
 from ..config.training_defaults import TRAINING_DEFAULTS 
@@ -130,13 +130,8 @@ def run_single_experiment_dsib_infinite(
     critic_cfg = exp_cfg.critic.cfg
     training_cfg = exp_cfg.training.cfg
 
-    # ## temporary catch for unimplemented types -- clean up
-    # # for now we only support infinite-data
-    # if exp_cfg.training.setup != "infinite_data_iter":
-    #     raise ValueError(
-    #         f"run_single_experiment_dsib_infinite only supports setup='infinite_data_iter', "
-    #         f"got {exp_cfg.training.setup!r}"
-    #     )
+    # make sure we have the infinite data config set up:
+    _validate_mode(exp_cfg, mode = "infinite_data_iter")
 
     # ## make device specification and use consistent across elements 
     # device = training_cfg.get("device", device) ## need to be synced up across training, model and datasets
@@ -149,8 +144,8 @@ def run_single_experiment_dsib_infinite(
     model = DSIB(estimator=estimator, critic=critic)
     
     # 5. Training
-    estimates_mi = train_model_infinite_data(model, data_generator, training_cfg, optimizer_cls=optimizer_cls, device=device)  # returns -mi in nats -- clean this return maybe via mode or somethign
-    mis_dsib_bits = -np.array(estimates_mi)*np.log2(np.e)            
+    estimates_mi = train_model_infinite_data(model, data_generator, training_cfg, optimizer_cls=optimizer_cls, device=device)  # returns mi in nats
+    mis_dsib_bits = np.array(estimates_mi)*np.log2(np.e)            
 
     # 6. Saving
     ## quick fields to help navigate the output instead of nested dictionaries. Modify build function to change tags fields; all the information about the run is saved under params
@@ -176,6 +171,17 @@ def _build_code_metadata() -> dict:
 
 def _build_run_tags(dataset_type: str, critic_type: str, setup: str, critic_cfg: dict, training_cfg: dict, method: str, estimator: str) -> dict:
     """Lightweight, query-friendly tags for H5ResultStore."""
+    # Decide what the "training length" means
+    if setup == "infinite_data_iter":
+        length_key = "n_iter"
+        length_val = training_cfg.get("n_iter", None)
+    elif setup == "finite_data_epoch":
+        length_key = "n_epochs"
+        length_val = training_cfg.get("n_epochs", None)
+    else:
+        raise ValueError(f"Unknown training setup: {setup}")
+
+        
     return {
         "method": method, #dsib or whatever else
         "estimator": estimator,
@@ -183,7 +189,7 @@ def _build_run_tags(dataset_type: str, critic_type: str, setup: str, critic_cfg:
         "critic_type": critic_type,
         "setup": setup,
         "kz": critic_cfg["embed_dim"],
-        "n_iter": training_cfg["n_iter"],
+        length_key: length_val,
     }
 
 
@@ -193,3 +199,67 @@ def _build_run_params(exp_cfg) -> dict:
         "experiment_cfg": asdict(exp_cfg),
         "code": _build_code_metadata(),
     }
+
+def _validate_mode(exp_cfg, mode: str = "infinite_data_iter"):
+    if exp_cfg.training.setup != mode:
+        raise ValueError(
+            f"mode expected {mode}, "
+            f"got {exp_cfg.training.setup!r}"
+        )
+
+def run_single_experiment_dsib_finite(
+    dataset_type: str = "gaussian_mixture",
+    critic_type: str = "hybrid",
+    setup: str ="finite_data_epoch",
+    outfile: str = "h5_results/test_output.h5",
+    dataset_overrides=None,  #override options 
+    critic_overrides= None,  #override options
+    training_overrides= None,  #override options
+    seed: Optional[int] = None,
+    estimator = "lclip",
+    optimizer_cls=torch.optim.Adam, 
+    device = 'cuda',
+):
+    # 1. initialize seed
+    if seed is None:
+        seed = np.random.randint(0, 2**32 - 1) # log this seed in the h5 output and other trianing parameters
+
+    set_seed(seed)
+
+    # 2. Build experiment config
+    exp_cfg = make_experiment_config(setup = setup, dataset_type=dataset_type, critic_type=critic_type, dataset_overrides=dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides, estimator=estimator, seed=seed, outfile=outfile)
+
+    dataset_cfg = exp_cfg.dataset.cfg
+    critic_cfg = exp_cfg.critic.cfg
+    training_cfg = exp_cfg.training.cfg
+
+    _validate_mode(exp_cfg, "finite_data_epoch")
+
+    # ## make device specification and use consistent across elements 
+    # device = training_cfg.get("device", device) ## need to be synced up across training, model and datasets
+
+    # 3. Data Generation --- FINITE DATA 
+    data_generator = make_data_generator(dataset_type, dataset_cfg, device = device)
+    trainSet_X,trainSet_Y = data_generator(training_cfg['n_samples'])  ## training dataset
+    evalSet_X, evalSet_Y = trainSet_X[:min(training_cfg['batch_size'], training_cfg['n_samples'])], trainSet_Y[:min(training_cfg['batch_size'], training_cfg['n_samples'])] # eval set: fixed subset of train dataset to report the training mi
+    testSet_X, testSet_Y = data_generator(training_cfg['batch_size']) # test dataset
+    trainData_ = Dataset(trainSet_X, trainSet_Y)
+    train_data_loader = torch.utils.data.DataLoader(trainData_, batch_size=training_cfg['batch_size'],shuffle=True)
+
+    # 4. Build Network
+    critic, *_ = make_critic(critic_type, critic_cfg) 
+    model = DSIB(estimator=estimator, critic=critic)
+    
+    # 5. Training
+    estimates_mi_train, estimates_mi_test = train_model_finite_data(model, train_data_loader, evalSet_X, evalSet_Y, testSet_X, testSet_Y,  training_cfg = training_cfg, optimizer_cls=optimizer_cls, device = device)  # returns mi_test and mi_train in nats
+
+    mis_dsib_bits_train = np.array(estimates_mi_train)*np.log2(np.e)            
+    mis_dsib_bits_test = np.array(estimates_mi_test)*np.log2(np.e)            
+
+    # 6. Saving
+    ## quick fields to help navigate the output instead of nested dictionaries. Modify build function to change tags fields; all the information about the run is saved under params
+    tags = _build_run_tags(method = 'dsib', dataset_type = dataset_type, critic_type = critic_type, setup = setup, critic_cfg = critic_cfg, training_cfg = training_cfg, estimator = estimator )
+    params = _build_run_params(exp_cfg)
+    save_run(outfile=outfile, tags=tags, params=params, mi_bits_train=mis_dsib_bits_train, mi_bits_test=mis_dsib_bits_test)
+
+    return mis_dsib_bits_train, mis_dsib_bits_test

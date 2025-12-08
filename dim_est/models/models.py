@@ -24,15 +24,16 @@ class DSIB(nn.Module):
 
         scores = self.critic(dataX, dataY)  # [B, B]
 
-        # TODO: hook baseline in if you want; for now assume None
+        # TO DO: baseline is not implemented
+
         if self.estimator == "infonce":
-            mi, mi_i1, mi_i2 = infonce_lower_bound(scores)
+            mi, extras = infonce_lower_bound(scores)
         elif self.estimator == "smile_5":
-            mi, mi_i1, mi_i2 = smile_lower_bound(scores, clip=5.0)
+            mi, extras = smile_lower_bound(scores, clip=5.0)
         elif self.estimator == "lclip":
-            mi, mi_i1, mi_i2 = clip_lower_bound(scores)
+            mi, extras = clip_lower_bound(scores)
         else:
             raise ValueError(f"Unknown estimator: {self.estimator}")
 
         loss = -mi
-        return loss, mi_i1, mi_i2
+        return loss, mi, extras

@@ -16,7 +16,8 @@ def infonce_lower_bound(scores):
     nll = scores.diag().mean() - scores.logsumexp(dim=1)
     mi = torch.tensor(scores.size(0)).float().log() + nll
     mi = mi.mean()
-    return mi
+    extras = {}
+    return mi, extras
 
 # def clip_lower_bound(scores):
 #     nll = scores.diag().mean() - 0.5 * scores.logsumexp(dim=1) - 0.5 * scores.logsumexp(dim=0)
@@ -37,7 +38,9 @@ def clip_lower_bound(scores):
     mi_i2 = 0.5*torch.tensor(scores.size(0)).float().log() + nll_2
     mi_i2 = mi_i2.mean()
 
-    return mi, mi_i1, mi_i2
+    extras = dict(mi_i1 = mi_i1, mi_i2 = mi_i2)
+
+    return mi, extras
 
 # def clip_lower_bound(scores: torch.Tensor):
 #     """
@@ -69,7 +72,10 @@ def smile_lower_bound(f, clip=None):
     with torch.no_grad():
         dv_js = dv - js
 
-    return js + dv_js
+    extras = {}
+
+    return js + dv_js, extras
+
 def js_fgan_lower_bound(f):
     """Lower bound on Jensen-Shannon divergence from Nowozin et al. (2016)."""
     f_diag = f.diag()
