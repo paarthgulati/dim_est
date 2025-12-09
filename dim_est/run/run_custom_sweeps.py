@@ -129,6 +129,36 @@ def infinite_gaussian_mixture():
 
 
 
+def infinite_gaussian_mixture_2():
+    outfile = "h5_results/infinite_data_gaussian_mixture.h5"
+    setup ="infinite_data_iter"
+
+    dataset_type = "gaussian_mixture"
+
+    for n_peaks, mu in zip([8, 16, 16], [5.0, 5.0, 2.0])
+        dataset_overrides = dict(latent=dict(n_peaks=n_peaks, mi_bits_peak=2.0, mu=mu, sig=1.0))
+
+        n_iter=20000
+        num_trials = 10
+        kz_list = range(15)
+        
+        for trial_num in range(num_trials):
+            for kz in kz_list:
+                for critic_type in ["hybrid", "separable"]:
+
+                    if critic_type == "hybrid" and kz == 0:
+                        continue  
+
+                    critic_overrides = {"embed_dim": kz}
+                    training_overrides = dict(n_iter=n_iter)
+
+                    print(f'Setup: {setup}, Training override parameters: {training_overrides}')
+                    print(f'Dataset Type: {dataset_type}; Dataset override parameters: {dataset_overrides}')
+                    print(f'Critic Type: {critic_type}; Critic override parameters: {critic_overrides}')
+
+                    mis_dsib_bits = run_dsib_infinite(setup = setup, critic_type = critic_type, outfile=outfile, dataset_type=dataset_type, dataset_overrides = dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides)
+
+
 def hp_sweep_hybrid_joint_gaussian(latent_dim: int = 8, embed_dim: int = 8):
     outfile = "h5_results/hp_sweep_infinite_joint_gaussian.h5"
     setup ="infinite_data_iter"
@@ -190,6 +220,8 @@ def main():
         infinite_joint_gaussian()
     elif args.job == "gaussian_mixtures":
         infinite_gaussian_mixture()
+    elif args.job == "gaussian_mixtures)2":
+        infinite_gaussian_mixture_2()
     elif args.job == "swissroll":
         infinite_swiss_roll()
     elif args.job == "hypershell":
