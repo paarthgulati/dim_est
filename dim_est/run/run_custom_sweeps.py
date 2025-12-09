@@ -99,6 +99,40 @@ def infinite_joint_gaussian():
                     mis_dsib_bits = run_dsib_infinite(setup = setup, critic_type = critic_type, outfile=outfile, dataset_type=dataset_type, dataset_overrides = dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides)
 
 
+def infinite_joint_gaussian_overkill():
+    outfile = "h5_results/infinite_data_joint_gaussian.h5"
+    setup ="infinite_data_iter"
+    
+    dataset_type = "joint_gaussian"
+
+    n_iter=20_000
+    num_trials = 10
+    kz_list = range(12)
+    encode_layer = 2
+    hidden_size = 512
+    lr = 1e-3
+    pair_size=128
+    pair_layer=1
+
+    for trial_num in range(num_trials):
+        for latent_dim in [8]:
+            for critic_type in ["hybrid", "separable"]:
+                for kz in kz_list:
+                    dataset_overrides = dict(latent=dict(latent_dim=latent_dim, mi_bits=2.0))
+
+
+                    if critic_type == "hybrid" and kz == 0:
+                        continue  
+
+                    critic_overrides = dict(embed_dim=kz, x_hidden_dim=hidden_size, x_layers=encode_layer, y_hidden_dim=hidden_size, y_layers=encode_layer, pair_hidden_dim=pair_size, pair_layers=pair_layer)
+                    training_overrides = dict(lr=lr, n_iter=n_iter)
+
+                    print(f'Setup: {setup}, Training override parameters: {training_overrides}')
+                    print(f'Dataset Type: {dataset_type}; Dataset override parameters: {dataset_overrides}')
+                    print(f'Critic Type: {critic_type}; Critic override parameters: {critic_overrides}')
+
+                    mis_dsib_bits = run_dsib_infinite(setup = setup, critic_type = critic_type, outfile=outfile, dataset_type=dataset_type, dataset_overrides = dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides)
+
 
 def infinite_gaussian_mixture():
     outfile = "h5_results/infinite_data_gaussian_mixture.h5"
@@ -135,12 +169,12 @@ def infinite_gaussian_mixture_2():
 
     dataset_type = "gaussian_mixture"
 
-    for n_peaks, mu in zip([8, 16, 16], [5.0, 5.0, 2.0])
+    for n_peaks, mu in zip([16], [2.0]):
         dataset_overrides = dict(latent=dict(n_peaks=n_peaks, mi_bits_peak=2.0, mu=mu, sig=1.0))
 
         n_iter=20000
         num_trials = 10
-        kz_list = range(15)
+        kz_list = range(25)
         
         for trial_num in range(num_trials):
             for kz in kz_list:
@@ -218,9 +252,11 @@ def main():
 
     if args.job == "joint_gaussians":
         infinite_joint_gaussian()
+    elif args.job == "joint_gaussians_overkill":
+        infinite_joint_gaussian_overkill()
     elif args.job == "gaussian_mixtures":
         infinite_gaussian_mixture()
-    elif args.job == "gaussian_mixtures)2":
+    elif args.job == "gaussian_mixtures_2":
         infinite_gaussian_mixture_2()
     elif args.job == "swissroll":
         infinite_swiss_roll()

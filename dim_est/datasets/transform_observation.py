@@ -59,6 +59,12 @@ def build_observation_transform(latent_dim_x: int, latent_dim_y: int, transform_
 
     elif mode == "identity":
 
+        if transform_cfg["observe_dim_x"] is not None or transform_cfg["observe_dim_y"] is not None:
+            raise ValueError(
+                f"Invalid transform parameters; For identity transform.observe_dim_x and transform.observe_dim_y should be None. "
+                f'Instead got {transform_cfg["observe_dim_x"]}  and {transform_cfg["observe_dim_y"]}'
+            )
+
         def transform(x, y):
             x_noisy = embedding_noise_injector(x, sig_embed=transform_cfg.get("sig_embed_x", 0.0), noise_mode=transform_cfg.get("noise_mode", "white_relative"))
             y_noisy = embedding_noise_injector(y, sig_embed=transform_cfg.get("sig_embed_y", 0.0), noise_mode=transform_cfg.get("noise_mode", "white_relative"))

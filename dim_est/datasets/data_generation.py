@@ -15,7 +15,7 @@ _ALLOWED_DATASET_LATENT_KEYS = {
 # transform keys depend on transform["mode"]
 _ALLOWED_TRANSFORM_KEYS = {
     "teacher": {"mode",  "observe_dim_x", "observe_dim_y", "sig_embed_x", "sig_embed_y", "noise_mode"},
-    "identity": {"mode", "sig_embed_x", "sig_embed_y", "noise_mode"},
+    "identity": {"mode", "observe_dim_x", "observe_dim_y", "sig_embed_x", "sig_embed_y", "noise_mode"},
     "linear": {"mode", "observe_dim_x", "observe_dim_y", "sig_embed_x", "sig_embed_y", "noise_mode"},
 }
 
