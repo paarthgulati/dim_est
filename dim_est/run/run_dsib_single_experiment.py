@@ -22,7 +22,6 @@ from ..config.experiment_config import (
 from ..utils.h5_result_store import H5ResultStore
 from ..utils.version_logs import get_git_commit_hash, is_dirty, get_git_diff
 
-
 def run_dsib_infinite(
     dataset_type: str = "gaussian_mixture",
     critic_type: str = "hybrid",
@@ -252,8 +251,8 @@ def _build_code_metadata() -> dict:
         "git_commit": get_git_commit_hash(),
         "dirty": is_dirty(),
     }
-    if code_meta["dirty"]:
-        code_meta["dirty_diff"] = get_git_diff()
+    # if code_meta["dirty"]:
+    #     code_meta["dirty_diff"] = get_git_diff()
     return code_meta
 
 

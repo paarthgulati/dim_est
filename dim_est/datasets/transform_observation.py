@@ -72,5 +72,36 @@ def build_observation_transform(latent_dim_x: int, latent_dim_y: int, transform_
 
         return transform
 
+    elif mode == "linear":
+
+        Nx = transform_cfg["observe_dim_x"]
+        Ny = transform_cfg["observe_dim_y"]
+
+        if Nx is None or Ny is None:
+            raise ValueError("Linear mode requires observe_dim_x and observe_dim_y.")
+
+        # Random linear projections
+        A_x = torch.nn.Linear(latent_dim_x, Nx, bias=False)
+        A_y = torch.nn.Linear(latent_dim_y, Ny, bias=False)
+
+        if device is not None:
+            A_x = A_x.to(device)
+            A_y = A_y.to(device)
+
+        # Freeze them (match teacher behavior)
+        for p in A_x.parameters(): p.requires_grad_(False)
+        for p in A_y.parameters(): p.requires_grad_(False)
+
+        def transform(x, y):
+            with torch.no_grad():
+                x_lin = A_x(x)
+                y_lin = A_y(y)
+
+            x_noisy = embedding_noise_injector(x_lin, sig_embed=transform_cfg.get("sig_embed_x", 0.0), noise_mode=transform_cfg.get("noise_mode", "white_relative"))
+            y_noisy = embedding_noise_injector(y_lin, sig_embed=transform_cfg.get("sig_embed_y", 0.0), noise_mode=transform_cfg.get("noise_mode", "white_relative"))
+            return x_noisy, y_noisy
+
+        return transform
+
     else:
         raise ValueError(f"Unknown transform mode {mode!r}")
