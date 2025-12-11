@@ -37,6 +37,73 @@ def infinite_swiss_roll():
 
                         mis_dsib_bits = run_dsib_infinite(setup = setup, critic_type = critic_type, outfile=outfile, dataset_type=dataset_type, dataset_overrides = dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides)
 
+def infinite_swiss_roll_2():
+    outfile = "h5_results/infinite_data_swiss_roll.h5"
+    setup ="infinite_data_iter"
+
+    dataset_type = "swiss_roll"
+
+    num_trials = 10
+    n_iter=20000
+    kz_list = range(7)
+    
+    for trial_num in range(num_trials):  
+        for t_max  in [1.0, 2.0, 3.0]:
+            for sig_embed in [2.0, 5.0]:
+                dataset_overrides = dict(latent=dict(t_min_pi_units=0, t_max_pi_units=t_max), transform = dict(sig_embed_x=sig_embed, sig_embed_y=sig_embed))
+            
+                for kz in kz_list:
+                    for critic_type in ["hybrid", "separable"]:
+            
+                        if critic_type == "hybrid" and kz == 0:
+                            continue  
+            
+                        critic_overrides = {"embed_dim": kz}
+            
+            
+                        training_overrides = dict(n_iter=n_iter)
+
+                        print(f'Setup: {setup}, Training override parameters: {training_overrides}')
+                        print(f'Dataset Type: {dataset_type}; Dataset override parameters: {dataset_overrides}')
+                        print(f'Critic Type: {critic_type}; Critic override parameters: {critic_overrides}')
+
+                        mis_dsib_bits = run_dsib_infinite(setup = setup, critic_type = critic_type, outfile=outfile, dataset_type=dataset_type, dataset_overrides = dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides)
+
+
+def infinite_swiss_roll_noisy():
+    outfile = "h5_results/infinite_data_swiss_roll_teacher_transform_noisy.h5"
+    setup ="infinite_data_iter"
+
+    dataset_type = "swiss_roll"
+
+    num_trials = 10
+    n_iter=20000
+    kz_list = range(7)
+
+    critic_type = "hybrid"
+    t_max = 3.5
+    t_min = 1.5
+    
+    for trial_num in range(num_trials):  
+        for sig_embed in [0.5, 1.0, 2.0, 4.0, 8.0]:
+            dataset_overrides = dict(latent=dict(t_min_pi_units=t_min, t_max_pi_units=t_max), transform = dict(sig_embed_x=sig_embed, sig_embed_y=sig_embed))
+        
+            for kz in kz_list:
+    
+                if critic_type == "hybrid" and kz == 0:
+                    continue  
+    
+                critic_overrides = {"embed_dim": kz}
+    
+    
+                training_overrides = dict(n_iter=n_iter)
+
+                print(f'Setup: {setup}, Training override parameters: {training_overrides}')
+                print(f'Dataset Type: {dataset_type}; Dataset override parameters: {dataset_overrides}')
+                print(f'Critic Type: {critic_type}; Critic override parameters: {critic_overrides}')
+
+                mis_dsib_bits = run_dsib_infinite(setup = setup, critic_type = critic_type, outfile=outfile, dataset_type=dataset_type, dataset_overrides = dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides)
+
 def infinite_hyperspherical_shell():
     outfile = "h5_results/infinite_data_hyperspherical_shell.h5"
     setup ="infinite_data_iter"
@@ -98,6 +165,71 @@ def infinite_hyperspherical_shell_2():
                         print(f'Critic Type: {critic_type}; Critic override parameters: {critic_overrides}')
 
                         mis_dsib_bits = run_dsib_infinite(setup = setup, critic_type = critic_type, outfile=outfile, dataset_type=dataset_type, dataset_overrides = dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides)
+
+
+def infinite_hyperspherical_shell_3():
+    outfile = "h5_results/infinite_data_hyperspherical_shell_teacher_transform_noisy.h5"
+    setup ="infinite_data_iter"
+    
+    dataset_type = "hyperspherical_shell"
+
+    num_trials = 10
+    n_iter=20000
+    kz_list = range(10)
+    radial_std=0.0
+    
+    for trial_num in range(num_trials):        
+        for latent_dim in [2, 3, 4, 6]:        
+            for sig_embed in [2.0, 5.0]: 
+                dataset_overrides = dict(latent=dict(latent_dim=latent_dim, radial_std=radial_std), transform = dict(sig_embed_x=sig_embed, sig_embed_y=sig_embed))
+                
+                for kz in kz_list:
+                    for critic_type in ["hybrid", "separable"]:
+        
+                        if critic_type == "hybrid" and kz == 0:
+                            continue  
+        
+                        critic_overrides = {"embed_dim": kz}
+                        training_overrides = dict(n_iter=n_iter)
+        
+                        print(f'Setup: {setup}, Training override parameters: {training_overrides}')
+                        print(f'Dataset Type: {dataset_type}; Dataset override parameters: {dataset_overrides}')
+                        print(f'Critic Type: {critic_type}; Critic override parameters: {critic_overrides}')
+
+                        mis_dsib_bits = run_dsib_infinite(setup = setup, critic_type = critic_type, outfile=outfile, dataset_type=dataset_type, dataset_overrides = dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides)
+
+
+def infinite_hyperspherical_shell_noisy():
+    outfile = "h5_results/infinite_data_hyperspherical_shell_teacher_transform_noisy.h5"
+    setup ="infinite_data_iter"
+    
+    dataset_type = "hyperspherical_shell"
+
+    num_trials = 10
+    n_iter=20000
+    kz_list = range(10)
+
+    latent_dim = 3
+    critic_type = "hybrid"
+    radial_std=0.5
+
+    for trial_num in range(num_trials):        
+        for sig_embed in [0.5, 1.0, 2.0, 4.0, 8.0]: 
+            dataset_overrides = dict(latent=dict(latent_dim=latent_dim, radial_std=radial_std), transform = dict(sig_embed_x=sig_embed, sig_embed_y=sig_embed))
+            
+            for kz in kz_list:
+            
+                if critic_type == "hybrid" and kz == 0:
+                    continue  
+
+                critic_overrides = {"embed_dim": kz}
+                training_overrides = dict(n_iter=n_iter)
+
+                print(f'Setup: {setup}, Training override parameters: {training_overrides}')
+                print(f'Dataset Type: {dataset_type}; Dataset override parameters: {dataset_overrides}')
+                print(f'Critic Type: {critic_type}; Critic override parameters: {critic_overrides}')
+
+                mis_dsib_bits = run_dsib_infinite(setup = setup, critic_type = critic_type, outfile=outfile, dataset_type=dataset_type, dataset_overrides = dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides)
 
 
 def infinite_joint_gaussian():
@@ -187,6 +319,38 @@ def infinite_joint_gaussian_teacher():
                     print(f'Critic Type: {critic_type}; Critic override parameters: {critic_overrides}')
 
                     mis_dsib_bits = run_dsib_infinite(setup = setup, critic_type = critic_type, outfile=outfile, dataset_type=dataset_type, dataset_overrides = dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides)
+
+def infinite_joint_gaussian_teacher_noisy():
+    outfile = "h5_results/infinite_data_joint_gaussian_teacher_transform_noisy.h5"
+    setup ="infinite_data_iter"
+    
+    dataset_type = "joint_gaussian"
+
+    n_iter=20_000
+    num_trials = 5
+    kz_list = range(12)
+    latent_dim = 4
+    critic_type = "hybrid"
+    
+    for trial_num in range(num_trials):
+        for sig in [0.0, 0.5, 1.0, 2.0]:
+            for kz in kz_list:
+                dataset_overrides = dict(latent=dict(latent_dim=latent_dim, mi_bits=2.0), transform=dict(mode = 'teacher', sig_embed_x = sig, sig_embed_y = sig))
+
+
+                if critic_type == "hybrid" and kz == 0:
+                    continue  
+
+                critic_overrides = {"embed_dim": kz}
+                training_overrides = dict(n_iter=n_iter)
+
+                print(f'Setup: {setup}, Training override parameters: {training_overrides}')
+                print(f'Dataset Type: {dataset_type}; Dataset override parameters: {dataset_overrides}')
+                print(f'Critic Type: {critic_type}; Critic override parameters: {critic_overrides}')
+
+                mis_dsib_bits = run_dsib_infinite(setup = setup, critic_type = critic_type, outfile=outfile, dataset_type=dataset_type, dataset_overrides = dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides)
+
+
 
 
 def infinite_joint_gaussian_overkill():
@@ -308,6 +472,35 @@ def infinite_gaussian_mixture_teacher():
                 mis_dsib_bits = run_dsib_infinite(setup = setup, critic_type = critic_type, outfile=outfile, dataset_type=dataset_type, dataset_overrides = dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides)
 
 
+def infinite_gaussian_mixture_teacher_noisy():
+    outfile = "h5_results/infinite_data_gaussian_mixture_teacher_transform_noisy.h5"
+    setup ="infinite_data_iter"
+
+    dataset_type = "gaussian_mixture"
+
+    n_iter=20000
+    num_trials = 5
+    kz_list = range(15)
+    critic_type = "hybrid"
+    
+    for trial_num in range(num_trials):
+        for kz in kz_list:
+            for sig in [0.0, 0.5, 1.0, 2.0]:
+
+                dataset_overrides = dict(latent=dict(n_peaks=8, mi_bits_peak=2.0, mu=2.0, sig=1.0), transform=dict(mode = 'teacher', sig_embed_x = sig, sig_embed_y = sig))
+
+                if critic_type == "hybrid" and kz == 0:
+                    continue  
+
+                critic_overrides = {"embed_dim": kz}
+                training_overrides = dict(n_iter=n_iter)
+
+                print(f'Setup: {setup}, Training override parameters: {training_overrides}')
+                print(f'Dataset Type: {dataset_type}; Dataset override parameters: {dataset_overrides}')
+                print(f'Critic Type: {critic_type}; Critic override parameters: {critic_overrides}')
+
+                mis_dsib_bits = run_dsib_infinite(setup = setup, critic_type = critic_type, outfile=outfile, dataset_type=dataset_type, dataset_overrides = dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides)
+
 
 
 def infinite_gaussian_mixture_2():
@@ -403,6 +596,8 @@ def main():
         infinite_joint_gaussian_linear()
     elif args.job == "joint_gaussians_teacher":
         infinite_joint_gaussian_teacher()
+    elif args.job == "joint_gaussians_teacher_noisy":
+        infinite_joint_gaussian_teacher_noisy()
     elif args.job == "joint_gaussians_overkill":
         infinite_joint_gaussian_overkill()
     elif args.job == "gaussian_mixtures":
@@ -411,14 +606,24 @@ def main():
         infinite_gaussian_mixture_linear()
     elif args.job == "gaussian_mixtures_teacher":
         infinite_gaussian_mixture_teacher()
+    elif args.job == "gaussian_mixtures_teacher_noisy":
+        infinite_gaussian_mixture_teacher_noisy()
     elif args.job == "gaussian_mixtures_2":
         infinite_gaussian_mixture_2()
     elif args.job == "swissroll":
         infinite_swiss_roll()
+    elif args.job == "swissroll_2":
+        infinite_swiss_roll_2()
+    elif args.job == "swissroll_noisy":
+        infinite_swiss_roll_noisy()
     elif args.job == "hypershell":
         infinite_hyperspherical_shell()
     elif args.job == "hypershell_2":
         infinite_hyperspherical_shell_2()
+    elif args.job == "hypershell_3":
+        infinite_hyperspherical_shell_3()
+    elif args.job == "hypershell_noisy":
+        infinite_hyperspherical_shell_noisy()
     elif args.job == "hp_optim":
         hp_sweep_hybrid_joint_gaussian()
     else:
