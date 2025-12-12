@@ -162,4 +162,3 @@ dependencies:
   - omegaconf
   - wandb
   - matplotlib[version='>=3.8']
-prefix: /users/pgulat4/.conda/envs/MI_estimation
