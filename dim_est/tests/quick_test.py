@@ -21,9 +21,6 @@ def run_tests():
     exp_cfg = single_finite_run()
     print("\n FINITE DATA TRIAL PASSED... \n")
 
-    # exp_cfg = parameter_sweep()
-    # print(f"\n PARAM SWEEP TRIAL PASSED...\n")
-
     
 if __name__=="__main__":
     run_testa()

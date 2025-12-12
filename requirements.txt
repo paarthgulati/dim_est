@@ -1,0 +1,9 @@
+cca_zoo==2.6.0
+h5py==3.14.0
+matplotlib==3.8.4
+numpy==1.25.2
+pandas==2.0.3
+scipy==1.16.3
+torch==2.0.1
+torchvision==0.15.2
+tqdm==4.66.1
