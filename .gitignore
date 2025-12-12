@@ -10,7 +10,7 @@ build/
 dist/
 
 # Ignore root-level python scripts: local scripts are added here for custom sweeps etc
- /*.py
+/*.py
 
 # --------------------
 # Conda / environments
