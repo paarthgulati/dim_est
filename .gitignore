@@ -1,0 +1,46 @@
+# --------------------
+# Python
+# --------------------
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Ignore root-level python scripts: local scripts are added here for custom sweeps etc
+ /*.py
+
+# --------------------
+# Conda / environments
+# --------------------
+.env
+.conda/
+conda-env/
+
+# --------------------
+# Jupyter / notebooks
+# --------------------
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# --------------------
+# Generated results / local outputs
+# --------------------
+h5_results/
+logs/
+scratch/
+nbs/
+jobs/
+
+# HDF5 files
+*.h5
+*.hdf5
+
+# --------------------
+# Editor / OS
+# --------------------
+.vscode/
+.idea/
+.DS_Store
