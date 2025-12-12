@@ -6,9 +6,9 @@
 Create and activate the conda environment:
 ```bash
 conda env create -f environment.yml
-conda activate MI_estimation
+conda activate dim_est
 ```
-Note: the current environment file may contain packages not strictly required by `dim_est` and may be trimmed in the future.
+Note: the current environment file only allows for a cuda implementation; will add cpu requirement in the future.
 
 ### Install the package (editable mode)
 From the repository root (the directory containing `pyproject.toml`):
