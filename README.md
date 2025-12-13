@@ -34,7 +34,7 @@ A template for running parameter sweeps is provided in:
 
 You can modify this file directly or run it as-is, for example:
 ```
-    python templates/template_run_sweep.py --job finite_joint_gaussian
+python templates/template_run_sweep.py --job finite_joint_gaussian
 ```
 The template:
 - runs a short sanity check for both finite- and infinite-data regimes
