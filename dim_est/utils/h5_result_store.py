@@ -4,6 +4,8 @@ import numpy as np
 import h5py
 import hashlib
 
+_UTF8_STR_DTYPE = h5py.string_dtype(encoding="utf-8")
+
 def _to_jsonable(obj: Any) -> Any:
     """Make obj JSON-serializable: convert numpy scalars/arrays and other simple types."""
     if isinstance(obj, (np.floating, np.integer, np.bool_)):
@@ -20,6 +22,13 @@ def _to_jsonable(obj: Any) -> Any:
 def _canonical_json(d: Dict[str, Any]) -> str:
     """Stable JSON encoding for hashing/fingerprints."""
     return json.dumps(_to_jsonable(d), sort_keys=True, separators=(",", ":"))
+
+def _read_utf8_scalar(ds) -> str:  ## to keep backwards compatiblity with the fixed string length type while using get_meta
+    v = ds[()]
+    if isinstance(v, (bytes, np.bytes_)):
+        return v.decode("utf-8")
+    return str(v) 
+
 
 class H5ResultStore:
     """
@@ -66,7 +75,9 @@ class H5ResultStore:
         run_grp = self._h.create_group(f"/runs/{run_id}")
         run_grp.create_group("data")
         meta["fingerprint"] = meta_hash
-        run_grp.create_dataset("attrs/json", data=np.string_(json.dumps(_to_jsonable(meta))))
+
+        run_grp.create_dataset("attrs/json", data=json.dumps(_to_jsonable(meta)), dtype=_UTF8_STR_DTYPE)
+        # run_grp.create_dataset("attrs/json", data=np.string_(json.dumps(_to_jsonable(meta)))) ## old np.string_ fixed length string deprecated in Numpy 2.0
         return run_id
 
     def save_array(
@@ -92,7 +103,7 @@ class H5ResultStore:
         return list(self._h.get("/runs", {}).keys()) if "/runs" in self._h else []
 
     def get_meta(self, run_id: str) -> Dict[str, Any]:
-        raw = self._h[f"/runs/{run_id}/attrs/json"][()].decode("utf-8")
+        raw = _read_utf8_scalar(self._h[f"/runs/{run_id}/attrs/json"])
         return json.loads(raw)
 
     def list_arrays(self, run_id: str) -> List[str]:
