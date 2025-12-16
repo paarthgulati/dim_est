@@ -1,4 +1,5 @@
 import torch
+from torch import nn
 from ..utils.networks import teacher
 
 
@@ -45,17 +46,7 @@ def build_observation_transform(latent_dim_x: int, latent_dim_y: int, transform_
         for p in teacher_model_y.parameters():
             p.requires_grad_(False)
 
-        def transform(x, y):
-            # assume x, y are already on correct device
-            with torch.no_grad():
-                x_embed = teacher_model_x(x)
-                y_embed = teacher_model_y(y)
-
-            x_embed_noisy = embedding_noise_injector(x_embed, sig_embed=transform_cfg.get("sig_embed_x", 0.0), noise_mode=transform_cfg.get("noise_mode", "white_relative"))
-            y_embed_noisy = embedding_noise_injector(y_embed, sig_embed=transform_cfg.get("sig_embed_y", 0.0), noise_mode=transform_cfg.get("noise_mode", "white_relative"))
-            return x_embed_noisy, y_embed_noisy
-
-        return transform
+        return TeacherTransform(teacher_model_x, teacher_model_y, transform_cfg)
 
     elif mode == "identity":
 
@@ -65,12 +56,7 @@ def build_observation_transform(latent_dim_x: int, latent_dim_y: int, transform_
                 f'Instead got {transform_cfg["observe_dim_x"]}  and {transform_cfg["observe_dim_y"]}'
             )
 
-        def transform(x, y):
-            x_noisy = embedding_noise_injector(x, sig_embed=transform_cfg.get("sig_embed_x", 0.0), noise_mode=transform_cfg.get("noise_mode", "white_relative"))
-            y_noisy = embedding_noise_injector(y, sig_embed=transform_cfg.get("sig_embed_y", 0.0), noise_mode=transform_cfg.get("noise_mode", "white_relative"))
-            return x_noisy, y_noisy
-
-        return transform
+        return IdentityTransform(transform_cfg)
 
     elif mode == "linear":
 
@@ -92,16 +78,61 @@ def build_observation_transform(latent_dim_x: int, latent_dim_y: int, transform_
         for p in A_x.parameters(): p.requires_grad_(False)
         for p in A_y.parameters(): p.requires_grad_(False)
 
-        def transform(x, y):
-            with torch.no_grad():
-                x_lin = A_x(x)
-                y_lin = A_y(y)
+        return LinearTransform(A_x, A_y, transform_cfg)
 
-            x_noisy = embedding_noise_injector(x_lin, sig_embed=transform_cfg.get("sig_embed_x", 0.0), noise_mode=transform_cfg.get("noise_mode", "white_relative"))
-            y_noisy = embedding_noise_injector(y_lin, sig_embed=transform_cfg.get("sig_embed_y", 0.0), noise_mode=transform_cfg.get("noise_mode", "white_relative"))
-            return x_noisy, y_noisy
-
-        return transform
 
     else:
         raise ValueError(f"Unknown transform mode {mode!r}")
+
+
+
+class IdentityTransform(nn.Module):
+    def __init__(self, transform_cfg: dict):
+        super().__init__()
+        self.sig_x = float(transform_cfg.get("sig_embed_x", 0.0) or 0.0)
+        self.sig_y = float(transform_cfg.get("sig_embed_y", 0.0) or 0.0)
+        self.noise_mode = transform_cfg.get("noise_mode", "white_relative")
+
+    def forward(self, x, y):
+        x_noisy = embedding_noise_injector(x, sig_embed=self.sig_x, noise_mode=self.noise_mode)
+        y_noisy = embedding_noise_injector(y, sig_embed=self.sig_y, noise_mode=self.noise_mode)
+        return x_noisy, y_noisy
+
+
+class TeacherTransform(nn.Module):
+    def __init__(self, teacher_model_x: nn.Module, teacher_model_y: nn.Module, transform_cfg: dict):
+        super().__init__()
+        self.teacher_model_x = teacher_model_x
+        self.teacher_model_y = teacher_model_y
+        self.sig_x = float(transform_cfg.get("sig_embed_x", 0.0) or 0.0)
+        self.sig_y = float(transform_cfg.get("sig_embed_y", 0.0) or 0.0)
+        self.noise_mode = transform_cfg.get("noise_mode", "white_relative")
+
+    def forward(self, x, y):
+        # assumes x,y already on correct device
+        with torch.no_grad():
+            x_embed = self.teacher_model_x(x)
+            y_embed = self.teacher_model_y(y)
+
+        x_embed_noisy = embedding_noise_injector(x_embed, sig_embed=self.sig_x, noise_mode=self.noise_mode)
+        y_embed_noisy = embedding_noise_injector(y_embed, sig_embed=self.sig_y, noise_mode=self.noise_mode)
+        return x_embed_noisy, y_embed_noisy
+
+
+class LinearTransform(nn.Module):
+    def __init__(self, A_x: nn.Module, A_y: nn.Module, transform_cfg: dict):
+        super().__init__()
+        self.A_x = A_x
+        self.A_y = A_y
+        self.sig_x = float(transform_cfg.get("sig_embed_x", 0.0) or 0.0)
+        self.sig_y = float(transform_cfg.get("sig_embed_y", 0.0) or 0.0)
+        self.noise_mode = transform_cfg.get("noise_mode", "white_relative")
+
+    def forward(self, x, y):
+        with torch.no_grad():
+            x_lin = self.A_x(x)
+            y_lin = self.A_y(y)
+
+        x_noisy = embedding_noise_injector(x_lin, sig_embed=self.sig_x, noise_mode=self.noise_mode)
+        y_noisy = embedding_noise_injector(y_lin, sig_embed=self.sig_y, noise_mode=self.noise_mode)
+        return x_noisy, y_noisy
