@@ -6,4 +6,5 @@
 
 2. (PG) Build Dataset classes and functions to import data instead of self-generated Datasets, with corresponding dataset dictionaries. Allow for image, neural and other arbitrary inputs
 
+3. (EA) Fix CCA to account for bits or nats in the same way as everything else.
 ## Long-term:
