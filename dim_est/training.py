@@ -6,7 +6,6 @@ from tqdm.auto import tqdm
 
 
 #for infinite data: fresh dataset of batch_size is generated every iteration, using the accompanying data_generator function
-
 def train_model_infinite_data(model, data_generator, training_cfg: dict, optimizer_cls=torch.optim.Adam, device = 'cuda'):
 
     batch_size = training_cfg["batch_size"]
@@ -42,46 +41,90 @@ def train_model_infinite_data(model, data_generator, training_cfg: dict, optimiz
     return np.array(estimates_mi)
 
 
+def train_model_finite_data(
+    model, 
+    train_loader, 
+    test_loader, 
+    train_eval_loader, 
+    training_cfg: dict, 
+    optimizer_cls=torch.optim.Adam, 
+    device='cuda'
+):
+    """
+    Finite data training loop with early stopping and distinct train/test evaluation.
+    
+    Args:
+        model: DSIB model
+        train_loader: DataLoader for the full training set (shuffled)
+        test_loader: DataLoader for the hold-out test set
+        train_eval_loader: DataLoader for a subset of the training set (for tracking train MI)
+        training_cfg: Config dict
+        optimizer_cls: Optimizer class
+        device: 'cuda' or 'cpu'
+    """
 
-def train_model_finite_data(model, train_data_loader, evalSet_X, evalSet_Y, testSet_X, testSet_Y,  training_cfg: dict, optimizer_cls=torch.optim.Adam, device = 'cuda'):
-
-    batch_size = training_cfg["batch_size"]
     n_epoch = training_cfg["n_epoch"]
     lr = training_cfg["lr"]
-    optimizer_kwargs = training_cfg.get("optimizer_kwargs", {})
-    show_progress = training_cfg["show_progress"]
+    optimizer_kwargs = training_cfg.get("optimizer_kwargs", {}) or {}
+    show_progress = training_cfg.get("show_progress", True)
+    
+    # Early stopping parameters
+    patience = training_cfg.get("patience", 10)
+    best_test_mi = -float('inf')
+    epochs_no_improve = 0
 
     model.to(device)  
-    if optimizer_kwargs is None:
-        optimizer_kwargs = {}
-
     opt = optimizer_cls(model.parameters(), lr=lr, **optimizer_kwargs)
 
     estimates_mi_train = []
     estimates_mi_test = []
 
-    iterator = tqdm(range(n_epoch)) if show_progress else range(n_epoch)
+    iterator = tqdm(range(n_epoch), desc="Epochs") if show_progress else range(n_epoch)
 
-    for epochs in iterator:
+    for epoch in iterator:
+        # --- 1. TRAIN LOOP ---
         model.train()
-        # train over all batches
-        for i, (x,y) in enumerate(train_data_loader):
+        for x, y in train_loader:
+            x, y = x.to(device), y.to(device)
             opt.zero_grad()
             loss, mi, extras = model(x, y) 
             loss.backward()
             opt.step()
 
-        # evaluate the mdoel at every epoch with a test and eval set (eval is a fixed subset of the training dataset):
+        # --- 2. EVAL LOOP (End of Epoch) ---
         model.eval()
-        with torch.no_grad():
-            loss_train, mi_train, extras_train = model(evalSet_X, evalSet_Y) 
-            loss_test, mi_test, extras_test = model(testSet_X, testSet_Y)
-
-            mi_train = mi_train.to('cpu').detach().numpy()
-            mi_test = mi_test.to('cpu').detach().numpy()
-
-            estimates_mi_train.append(mi_train)
-            estimates_mi_test.append(mi_test)
-
         
-    return estimates_mi_train, estimates_mi_test
+        # Helper to compute average MI over a loader
+        # This computes the MI average as multiple batches, but the loader should be one batch ideally
+        def evaluate_loader(loader):
+            total_mi = 0.0
+            steps = 0
+            with torch.no_grad():
+                for x, y in loader:
+                    x, y = x.to(device), y.to(device)
+                    _, mi, _ = model(x, y)
+                    total_mi += mi.item()
+                    steps += 1
+            return total_mi / max(1, steps)
+
+        # Eval on Train Subset
+        mi_train_avg = evaluate_loader(train_eval_loader)
+        estimates_mi_train.append(mi_train_avg)
+
+        # Eval on Test Set
+        mi_test_avg = evaluate_loader(test_loader)
+        estimates_mi_test.append(mi_test_avg)
+        
+        # --- 3. EARLY STOPPING CHECK ---
+        if mi_test_avg > best_test_mi:
+            best_test_mi = mi_test_avg
+            epochs_no_improve = 0
+        else:
+            epochs_no_improve += 1
+            
+        if epochs_no_improve >= patience:
+            if show_progress:
+                print(f"Early stopping triggered at epoch {epoch+1}. Best Test MI: {best_test_mi:.4f}")
+            break
+
+    return np.array(estimates_mi_train), np.array(estimates_mi_test)

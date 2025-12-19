@@ -2,10 +2,7 @@ import json
 import hashlib
 import h5py
 
-from dim_est.datasets.data_generation import make_data_generator
 from cca_zoo.linear import CCA
-import copy
-from tqdm import tqdm
 import numpy as np
 
 def cfg_hash(ds_cfg: dict, n_samples: int) -> str:
@@ -97,7 +94,7 @@ def mut_info_optimized(x, y, threshold=1e-10):
         logdet_tot = np.sum(np.log2(eig_tot_thr))
         logdet_x = np.sum(np.log2(eig_x_thr))
         logdet_y = np.sum(np.log2(eig_y_thr))
-        
+
         # Mutual information
         info = 0.5 * (logdet_x + logdet_y - logdet_tot)
         return info if not np.isinf(info) else np.nan
@@ -105,7 +102,16 @@ def mut_info_optimized(x, y, threshold=1e-10):
         return np.nan
 
 
-def generate_CCA_mi_estimate(data_generator, ds_cfg, n_samples, kz, use_cache= True, cache_path = "cca_mi_estimates.h5", write_to_cache=True):
+def generate_CCA_mi_estimate(
+    data_generator,
+    ds_cfg,
+    n_samples,
+    kz,
+    use_cache=True,
+    cache_path="cca_mi_estimates.h5",
+    write_to_cache=True,
+    backend="cca_zoo",
+):
 
     if use_cache:
         cached = get_cached_cca_value(cache_path, ds_cfg, n_samples, kz)
@@ -118,11 +124,103 @@ def generate_CCA_mi_estimate(data_generator, ds_cfg, n_samples, kz, use_cache= T
     x_data, y_data = data_generator(n_samples)
     x_data, y_data = x_data.numpy(), y_data.numpy()
 
-    cca_mdl = CCA(latent_dimensions=kz);
-    cca_mdl.fit((x_data,y_data));    
-    x_data_transform, y_data_transform = cca_mdl.transform((x_data,y_data))
+    # Add tiny jitter to avoid zero-variance columns or extremely small
+    # variances which can trigger divide-by-zero inside cca_zoo's internals.
+    # The noise is scaled relative to the data's standard deviation and is
+    # intentionally tiny so it doesn't change the signal.
+    def _add_tiny_jitter(arr, rel_scale=1e-8, abs_min=1e-12):
+        s = np.std(arr)
+        base = max(s, abs_min)
+        scale = rel_scale * base
+        if scale > 0:
+            arr = arr + np.random.normal(loc=0.0, scale=scale, size=arr.shape)
+        return arr
+
+    # Try multiple jitter scales to avoid NaNs/infs produced during CCA.
+    # If all retries fail, return NaN (and do not cache).
+    jitter_scales = [1e-8, 1e-6, 1e-4]
+    x_data_transform = y_data_transform = None
+
+    for scale in jitter_scales:
+        xj = _add_tiny_jitter(x_data, rel_scale=scale)
+        yj = _add_tiny_jitter(y_data, rel_scale=scale)
+
+        if backend == "cca_zoo":
+            cca_mdl = CCA(latent_dimensions=kz)
+            try:
+                try:
+                    cca_mdl.fit((xj, yj))
+                except AttributeError as err:
+                    if "_get_tags" in str(err):
+                        def _get_tags(self):
+                            return {"requires_positive_X": False}
+                        setattr(CCA, "_get_tags", _get_tags)
+                        cca_mdl = CCA(latent_dimensions=kz)
+                        cca_mdl.fit((xj, yj))
+                    else:
+                        raise
+
+                xt, yt = cca_mdl.transform((xj, yj))
+                if np.isfinite(xt).all() and np.isfinite(yt).all():
+                    x_data_transform, y_data_transform = xt, yt
+                    break
+            except Exception:
+                x_data_transform = y_data_transform = None
+                continue
+
+        elif backend == "randomized":
+            Xc = xj - np.mean(xj, axis=0, keepdims=True)
+            Yc = yj - np.mean(yj, axis=0, keepdims=True)
+            n, p = Xc.shape
+            _, q = Yc.shape
+
+            Cxx = (Xc.T @ Xc) / (n - 1)
+            Cyy = (Yc.T @ Yc) / (n - 1)
+            Cxy = (Xc.T @ Yc) / (n - 1)
+
+            eps = 1e-8
+            Cxx += eps * np.eye(p)
+            Cyy += eps * np.eye(q)
+
+            sx, ux = np.linalg.eigh(Cxx)
+            sy, uy = np.linalg.eigh(Cyy)
+            sx_clipped = np.clip(sx, a_min=eps, a_max=None)
+            sy_clipped = np.clip(sy, a_min=eps, a_max=None)
+
+            inv_sqrt_Cxx = (ux @ np.diag(1.0 / np.sqrt(sx_clipped))) @ ux.T
+            inv_sqrt_Cyy = (uy @ np.diag(1.0 / np.sqrt(sy_clipped))) @ uy.T
+
+            M = inv_sqrt_Cxx @ Cxy @ inv_sqrt_Cyy
+
+            try:
+                from sklearn.utils.extmath import randomized_svd
+                U, S, Vt = randomized_svd(M, n_components=kz, n_iter=2, random_state=0)
+            except Exception:
+                U, S, Vt = np.linalg.svd(M, full_matrices=False)
+                U = U[:, :kz]
+                Vt = Vt[:kz, :]
+
+            A = inv_sqrt_Cxx @ U[:, :kz]
+            B = inv_sqrt_Cyy @ Vt.T[:, :kz]
+
+            xt = Xc @ A
+            yt = Yc @ B
+            if np.isfinite(xt).all() and np.isfinite(yt).all():
+                x_data_transform, y_data_transform = xt, yt
+                break
+            else:
+                x_data_transform = y_data_transform = None
+                continue
+
+        else:
+            raise ValueError(f"Unknown backend '{backend}' for CCA")
+
+    if x_data_transform is None or y_data_transform is None:
+        return np.nan
+
     mi_cca_opt = mut_info_optimized(x_data_transform, y_data_transform)
 
-    if write_to_cache:
-        set_cached_cca_value(cache_path, ds_cfg, n_samples, kz, mi_cca_opt)    
+    if write_to_cache and not np.isnan(mi_cca_opt):
+        set_cached_cca_value(cache_path, ds_cfg, n_samples, kz, mi_cca_opt)
+
     return mi_cca_opt

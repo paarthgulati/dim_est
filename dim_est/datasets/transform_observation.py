@@ -58,11 +58,14 @@ def build_observation_transform(latent_dim_x: int, latent_dim_y: int, transform_
         return transform
 
     elif mode == "identity":
-
-        if transform_cfg["observe_dim_x"] is not None or transform_cfg["observe_dim_y"] is not None:
-            raise ValueError(
-                f"Invalid transform parameters; For identity transform.observe_dim_x and transform.observe_dim_y should be None. "
-                f'Instead got {transform_cfg["observe_dim_x"]}  and {transform_cfg["observe_dim_y"]}'
+        obs_x = transform_cfg.get("observe_dim_x")
+        obs_y = transform_cfg.get("observe_dim_y")
+        
+        if obs_x is not None or obs_y is not None:
+             raise ValueError(
+                f"Invalid transform parameters; For identity transform.observe_dim_x and "
+                f"transform.observe_dim_y should be None (or omitted). "
+                f"Instead got {obs_x} and {obs_y}"
             )
 
         def transform(x, y):

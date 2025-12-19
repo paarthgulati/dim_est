@@ -3,6 +3,7 @@ from typing import Any, Dict, Optional, List
 import numpy as np
 import h5py
 import hashlib
+import os
 
 _UTF8_STR_DTYPE = h5py.string_dtype(encoding="utf-8")
 
@@ -16,14 +17,13 @@ def _to_jsonable(obj: Any) -> Any:
         return [_to_jsonable(x) for x in obj]
     if isinstance(obj, dict):
         return {str(k): _to_jsonable(v) for k, v in obj.items()}
-    # primitives (str, int, float, bool, None) pass through
     return obj
 
 def _canonical_json(d: Dict[str, Any]) -> str:
     """Stable JSON encoding for hashing/fingerprints."""
     return json.dumps(_to_jsonable(d), sort_keys=True, separators=(",", ":"))
 
-def _read_utf8_scalar(ds) -> str:  ## to keep backwards compatiblity with the fixed string length type while using get_meta
+def _read_utf8_scalar(ds) -> str: 
     v = ds[()]
     if isinstance(v, (bytes, np.bytes_)):
         return v.decode("utf-8")
@@ -34,9 +34,6 @@ class H5ResultStore:
     """
     Generic hierarchical result store:
       /runs/<uuid>/
-          data/<name>        # ndarray datasets
-          attrs/json         # JSON (params, tags, created_at, fingerprint)
-    Root attrs: schema_version, created_at, tool
     """
     SCHEMA_VERSION = "1.1"
 
@@ -56,7 +53,7 @@ class H5ResultStore:
     def new_run(
         self,
         *,
-        params: Dict[str, Any],     # e.g. {"opt": opt_params, "data": data_params, "critic": base_critic_params}
+        params: Dict[str, Any],     
         tags: Optional[Dict[str, Any]] = None,
         dedupe_on_fingerprint: bool = False
     ) -> str:
@@ -65,11 +62,10 @@ class H5ResultStore:
         meta_hash = hashlib.sha256(meta_json.encode("utf-8")).hexdigest()
 
         if dedupe_on_fingerprint:
-            # simple linear scan (fine for modest number of runs)
             for rid in self.list_runs():
                 old = self.get_meta(rid)
                 if old.get("fingerprint") == meta_hash:
-                    return rid  # reuse existing run
+                    return rid  
 
         run_id = str(uuid.uuid4())
         run_grp = self._h.create_group(f"/runs/{run_id}")
@@ -77,7 +73,6 @@ class H5ResultStore:
         meta["fingerprint"] = meta_hash
 
         run_grp.create_dataset("attrs/json", data=json.dumps(_to_jsonable(meta)), dtype=_UTF8_STR_DTYPE)
-        # run_grp.create_dataset("attrs/json", data=np.string_(json.dumps(_to_jsonable(meta)))) ## old np.string_ fixed length string deprecated in Numpy 2.0
         return run_id
 
     def save_array(
@@ -113,10 +108,6 @@ class H5ResultStore:
         return self._h[f"/runs/{run_id}/data/{name}"][()]
 
     def query(self, *, where: Optional[Dict[str, Any]] = None) -> List[str]:
-        """
-        Exact-match query on dotted keys into meta:
-          where={'params.opt.batch_size': 128, 'tags.estimator': 'infonce'}
-        """
         where = {k: str(v) for k, v in (where or {}).items()}
         out = []
         for rid in self.list_runs():
@@ -133,3 +124,39 @@ class H5ResultStore:
             if ok:
                 out.append(rid)
         return out
+    
+    @staticmethod
+    def merge_files(source_paths: List[str], dest_path: str, delete_sources: bool = False):
+        """
+        Merge all runs from source_paths into dest_path.
+        Does not support deduplication (blind copy).
+        """
+        # Ensure dest exists
+        with H5ResultStore(dest_path, "a") as _: pass
+        
+        with h5py.File(dest_path, "a") as f_dest:
+            dest_runs = f_dest.require_group("runs")
+            
+            for src in source_paths:
+                if not os.path.exists(src): continue
+                
+                with h5py.File(src, "r") as f_src:
+                    if "runs" not in f_src: continue
+                    
+                    src_runs = f_src["runs"]
+                    for run_id in src_runs.keys():
+                        # Copy group /runs/<run_id> from src to dest
+                        # If run_id collision, we skip or error? 
+                        # UUIDs practically guarantee unique, so direct copy is safe.
+                        if run_id in dest_runs:
+                            print(f"Warning: Run ID {run_id} collision during merge. Skipping.")
+                            continue
+                            
+                        f_src.copy(f"runs/{run_id}", dest_runs, name=run_id)
+        
+        if delete_sources:
+            for src in source_paths:
+                try:
+                    os.remove(src)
+                except OSError:
+                    pass

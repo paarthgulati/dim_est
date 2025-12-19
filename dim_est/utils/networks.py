@@ -10,15 +10,6 @@ import json
 
 
 
-# Check if CUDA or MPS is running
-if torch.cuda.is_available():
-    device = 'cuda'
-elif torch.backends.mps.is_available():
-    device = 'mps'
-else:
-    device = "cpu"
-
-
 class mlp(nn.Module):
     def __init__(self, dim, hidden_dim, output_dim, layers, activation):
         """Create an mlp from the configurations."""
