@@ -13,15 +13,22 @@ class RandomFeatureDataset(Dataset):
         self.fraction = fraction
         
         # Determine split mask once (fixed per run)
-        # We assume data is (N, D) or (N, C, H, W) flattened? 
-        # Usually this applies to flat feature vectors (N, D).
-        D = data_tensor.shape[1]
-        n_x = int(D * fraction)
+        # Handle (N, C, H, W) by flattening first if needed, 
+        # but usually we expect the user to flatten before or handle inside
+        if data_tensor.dim() > 2:
+            # Flatten everything after batch dim for indexing
+            self.flat_dim = data_tensor[0].numel()
+            self.flatten = True
+        else:
+            self.flat_dim = data_tensor.shape[1]
+            self.flatten = False
+
+        n_x = int(self.flat_dim * fraction)
         
         # Create permutation
         g = torch.Generator()
         g.manual_seed(seed)
-        perm = torch.randperm(D, generator=g)
+        perm = torch.randperm(self.flat_dim, generator=g)
         
         self.indices_x = perm[:n_x]
         self.indices_y = perm[n_x:]
@@ -31,6 +38,8 @@ class RandomFeatureDataset(Dataset):
         
     def __getitem__(self, idx):
         row = self.data[idx]
+        if self.flatten:
+            row = row.view(-1)
         return row[self.indices_x], row[self.indices_y]
 
 
@@ -58,37 +67,78 @@ class TemporalDataset(Dataset):
 
 class SpatialSplitDataset(Dataset):
     """
-    Splits an image tensor (C, H, W) into two spatial halves.
-    axis=1 -> Split height (Top/Bottom)
-    axis=2 -> Split width (Left/Right)
+    Splits an image tensor (C, H, W) into two spatial views.
+    
+    Modes:
+      - 'axis': Splits along a cardinal axis (returns rectangular tensors).
+           axis=1 -> Split height (Top/Bottom)
+           axis=2 -> Split width (Left/Right)
+      - 'diagonal': Splits along the diagonal (returns FLATTENED vectors).
+           diagonal_dir=1 -> Main diagonal (Top-Left / Bottom-Right)
+           diagonal_dir=-1 -> Anti-diagonal (Top-Right / Bottom-Left)
     """
-    def __init__(self, data_tensor, axis=2):
+    def __init__(self, data_tensor, mode="axis", axis=2, diagonal_dir=1):
         super().__init__()
         self.data = data_tensor
-        self.axis = axis # Dimension to split along (0 is channel, 1 is height, 2 is width)
+        self.mode = mode
+        self.axis = axis 
+        self.diagonal_dir = diagonal_dir
         
+        # Precompute diagonal indices if needed
+        if self.mode == "diagonal":
+            # Assume data is (N, C, H, W) or (N, 1, H, W)
+            # We treat C as part of the features per pixel or flatten it?
+            # For simplicity, we flatten C, H, W entirely, but compute mask based on H, W.
+            if data_tensor.dim() != 4:
+                raise ValueError("Diagonal split requires (N, C, H, W) input.")
+            
+            _, C, H, W = data_tensor.shape
+            
+            # Create grid
+            row_idx = torch.arange(H).unsqueeze(1).repeat(1, W)
+            col_idx = torch.arange(W).unsqueeze(0).repeat(H, 1)
+            
+            if diagonal_dir == 1:
+                # Main diagonal: row < col vs row >= col
+                mask_x = (row_idx < col_idx) # Upper Triangle
+            else:
+                # Anti-diagonal: row + col < W
+                mask_x = ((row_idx + col_idx) < W) # Top-Left Triangle
+            
+            # Expand mask to C channels: (C, H, W)
+            # We want to keep all channels for a selected pixel
+            mask_x = mask_x.unsqueeze(0).repeat(C, 1, 1) # (C, H, W)
+            mask_y = ~mask_x
+            
+            # Convert to flat indices
+            self.indices_x = torch.where(mask_x.view(-1))[0]
+            self.indices_y = torch.where(mask_y.view(-1))[0]
+
     def __len__(self):
         return len(self.data)
     
     def __getitem__(self, idx):
-        img = self.data[idx]
-        # img shape: (C, H, W)
-        dim_size = img.shape[self.axis]
-        mid = dim_size // 2
+        img = self.data[idx] # (C, H, W)
         
-        # Slicing logic
-        if self.axis == 1: # Height
-            x_view = img[:, :mid, :]
-            y_view = img[:, mid:, :]
-        elif self.axis == 2: # Width
-            x_view = img[:, :, :mid]
-            y_view = img[:, :, mid:]
-        else:
-            # Fallback or Channel split
-            # Using torch.split might be cleaner but manual slice is explicit
-            x_view, y_view = torch.split(img, mid, dim=self.axis)
+        if self.mode == "diagonal":
+            flat_img = img.view(-1)
+            return flat_img[self.indices_x], flat_img[self.indices_y]
+        
+        else: # mode == "axis"
+            dim_size = img.shape[self.axis]
+            mid = dim_size // 2
             
-        return x_view, y_view
+            # Slicing logic
+            if self.axis == 1: # Height
+                x_view = img[:, :mid, :]
+                y_view = img[:, mid:, :]
+            elif self.axis == 2: # Width
+                x_view = img[:, :, :mid]
+                y_view = img[:, :, mid:]
+            else:
+                x_view, y_view = torch.split(img, mid, dim=self.axis)
+                
+            return x_view, y_view
 
 
 class AugmentationDataset(Dataset):
@@ -101,7 +151,6 @@ class AugmentationDataset(Dataset):
         self.data = data_tensor
         
         # Build transform pipeline based on spec string
-        # In a real app, we might pass a full Compose object, but for config serialization we use strings.
         transforms_list = []
         
         # Assume input is (C, H, W) scaled 0-1 or normalized
@@ -118,7 +167,6 @@ class AugmentationDataset(Dataset):
              transforms_list.append(T.ColorJitter(0.4, 0.4, 0.4, 0.1))
              
         if not transforms_list:
-            # Default identity if spec is empty or unknown
             transforms_list.append(T.Lambda(lambda x: x))
             
         self.transform = T.Compose(transforms_list)
@@ -128,8 +176,6 @@ class AugmentationDataset(Dataset):
 
     def __getitem__(self, idx):
         img = self.data[idx]
-        # Apply transform twice independently
-        # Note: input img is Tensor. T.RandomResizedCrop works on Tensor.
         view1 = self.transform(img)
         view2 = self.transform(img)
         return view1, view2

@@ -15,5 +15,6 @@ TRAINING_DEFAULTS = {
         "device": "cuda",
         "optimizer_kwargs": {},
         "show_progress": True,
+        "patience": 10,
     },
 }

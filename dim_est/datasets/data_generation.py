@@ -67,27 +67,16 @@ def get_finite_dataloaders(dataset_type: str, dataset_cfg: dict, training_cfg: d
     
     full_dataset = None
 
-    # 1. Acquire Data
+    # 1. Acquire Data (Synthetic or External)
     if source == "synthetic":
-        # Generate the full dataset in memory
         n_samples = training_cfg.get("n_samples", 4096)
         generator = make_data_generator(dataset_type, dataset_cfg, device=device, dtype=dtype)
         full_x, full_y = generator(n_samples)
+        full_x, full_y = full_x.cpu(), full_y.cpu()
         
-        # Ensure on CPU
-        full_x = full_x.cpu()
-        full_y = full_y.cpu()
-        
-        # Synthetic data always comes in pairs (X, Y)
-        # If a split strategy is requested on synthetic data (e.g. treating X as single source),
-        # we could support that, but usually synthetic means we have the ground truth pairs.
-        # For now, if split_strategy is "none", use (X, Y).
-        # If split_strategy is set, we use X as the single source.
         if split_strategy == "none":
             full_dataset = TensorDataset(full_x, full_y)
         else:
-            # Treat 'full_x' as the single dataset source
-            # Proceed to wrapping logic below
             data_source = full_x
 
     elif source == "external":
@@ -97,49 +86,40 @@ def get_finite_dataloaders(dataset_type: str, dataset_cfg: dict, training_cfg: d
         
         data = torch.load(path, map_location="cpu")
         
-        # Determine what we have
         has_x = False
         has_y = False
         
+        # Handle tuple, dict, or tensor
         if isinstance(data, (tuple, list)) and len(data) == 2:
             raw_x, raw_y = data
             has_x, has_y = True, True
         elif isinstance(data, dict):
-            if "x" in data: 
-                raw_x = data["x"]
-                has_x = True
-            if "y" in data: 
-                raw_y = data["y"]
-                has_y = True
+            if "x" in data: raw_x, has_x = data["x"], True
+            if "y" in data: raw_y, has_y = data["y"], True
         elif isinstance(data, torch.Tensor):
-            raw_x = data
-            has_x = True
-            has_y = False
+            raw_x, has_x = data, True
         else:
-             raise ValueError("External data format not recognized. Must be Tensor, Dict, or Tuple.")
-
-        # Logic: 
-        # If split_strategy == "none", we MUST have X and Y.
-        # If split_strategy != "none", we only need X.
+             raise ValueError("External data format not recognized.")
         
         if split_strategy == "none":
             if not (has_x and has_y):
-                 raise ValueError("split_strategy='none' requires both X and Y in external data.")
+                 raise ValueError("split_strategy='none' requires both X and Y.")
             full_dataset = TensorDataset(raw_x, raw_y)
         else:
             if not has_x:
-                raise ValueError(f"split_strategy='{split_strategy}' requires at least 'x' in external data.")
+                raise ValueError(f"split_strategy='{split_strategy}' requires 'x'.")
             data_source = raw_x
 
     else:
         raise ValueError(f"Unknown data source: {source}")
 
-    # 2. Apply Splitting Wrappers (if applicable)
+    # 2. Apply Splitting Wrappers
     if full_dataset is None:
-        # We have `data_source` (Single Tensor) and need to wrap it
         if split_strategy == "random_feature":
             fraction = split_params.get("fraction", 0.5)
-            full_dataset = RandomFeatureDataset(data_source, fraction=fraction)
+            # Pass seed if provided, else default
+            seed = split_params.get("seed", 42) 
+            full_dataset = RandomFeatureDataset(data_source, fraction=fraction, seed=seed)
             
         elif split_strategy == "temporal":
             lag = split_params.get("lag", 1)
@@ -147,7 +127,9 @@ def get_finite_dataloaders(dataset_type: str, dataset_cfg: dict, training_cfg: d
             
         elif split_strategy == "spatial":
             axis = split_params.get("axis", 2)
-            full_dataset = SpatialSplitDataset(data_source, axis=axis)
+            mode = split_params.get("mode", "axis")
+            diag_dir = split_params.get("diagonal_dir", 1)
+            full_dataset = SpatialSplitDataset(data_source, mode=mode, axis=axis, diagonal_dir=diag_dir)
             
         elif split_strategy == "augment":
             spec = split_params.get("transform_spec", "crop_flip")
@@ -156,29 +138,25 @@ def get_finite_dataloaders(dataset_type: str, dataset_cfg: dict, training_cfg: d
         else:
             raise ValueError(f"Unknown split_strategy: {split_strategy}")
 
-    # 3. Split Train/Test/Eval (Default 90% Train / 10% Test)
+    # 3. Split Train/Test/Eval (90/10)
     total_len = len(full_dataset)
     train_frac = 0.9
     train_len = int(train_frac * total_len)
     test_len = total_len - train_len
     
-    # Random split
     train_dataset, test_dataset = random_split(
         full_dataset, [train_len, test_len], 
         generator=torch.Generator().manual_seed(42) 
     )
 
-    # 4. Create 'Train Eval' Subset
     indices = list(range(min(len(train_dataset), test_len)))
     train_eval_dataset = Subset(train_dataset, indices)
 
-    # 5. Create Loaders
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
     train_eval_loader = DataLoader(train_eval_dataset, batch_size=batch_size, shuffle=False)
 
     return train_loader, test_loader, train_eval_loader
-
 
 def _validate_dataset_cfg(dataset_type: str, dataset_cfg: dict) -> None:
     """Check that latent/transform keys are valid for this dataset + mode."""

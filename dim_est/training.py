@@ -6,7 +6,7 @@ from tqdm.auto import tqdm
 
 
 #for infinite data: fresh dataset of batch_size is generated every iteration, using the accompanying data_generator function
-def train_model_infinite_data(model, data_generator, training_cfg: dict, optimizer_cls=torch.optim.Adam, device = 'cuda'):
+def train_model_infinite_data(model, data_generator, training_cfg: dict, optimizer_cls=torch.optim.SGD, device = 'cuda'):
 
     batch_size = training_cfg["batch_size"]
     n_iter = training_cfg["n_iter"]

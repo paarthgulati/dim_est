@@ -131,6 +131,7 @@ def run_dsib_finite(
 ):
     # 0. Auto-detect device
     device = _get_auto_device(device)
+    print(f"Using device: {device}")
 
     # 1. initialize seed
     if seed is None:

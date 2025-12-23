@@ -6,7 +6,21 @@
 
 2. (PG) Build Dataset classes and functions to import data instead of self-generated Datasets, with corresponding dataset dictionaries. Allow for image, neural and other arbitrary inputs
 
-3. (EA) Fix CCA to account for bits or nats in the same way as everything else.
+3. (EA - Minor) Fix CCA to account for bits or nats in the same way as everything else.
+
+4. (EA - Minor) Make the tqdm bar show the MI values.
+
+5. (EA - Minor) Include smoothing in utils.
+
+6. (EA - Major) A more flexible train and test splits.
+
+7. (PG - Minor) Fix the observed dimensionality.
+
+8. (EA - Minor) Fix device in run finite
+
+9. Add DVSIB
+
+10. (PG) Fix the defaults from the transforms and datasets.
 
 _______________________________________
 ## For the next run:
