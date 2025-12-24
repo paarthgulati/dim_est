@@ -2,6 +2,7 @@ import os, datetime
 import argparse
 import itertools
 from dim_est.run.run_dsib_single_experiment import run_dsib_infinite, run_dsib_finite
+from dim_est.run.parallel_sweeps import run_sweep_parallel
 from dim_est.tests import quick_test
 
 ## To prevent writing from multiple heads to the same h5 file (which will crash the writer) -- make smaller outfiles with job ID and time which can be merged or later used together for plotting
@@ -53,37 +54,48 @@ def main():
 
 
 
-def finite_joint_gaussian(output_dir: str):
+def finite_joint_gaussian(output_dir: str, n_jobs: int):
     outfile = _make_outfile(output_dir, stem="finite_data_joint_gaussian")
 
     setup ="finite_data_epoch"
     dataset_type = "joint_gaussian"
+    
+    # 1. Define Sweep Parameters
     num_trials = 2
     kz_list = range(12)
     latent_dim = 4
-    critic_type = "hybrid"
-
-    n_epoch = 100
-    sig = 0.0
+    n_samples_list = [128]
     
-    for trial_num in range(num_trials):
-        for n_samples in [128]: 
+    configs = []
+    
+    # 2. Build Config List
+    for trial in range(num_trials):
+        for n_samples in n_samples_list: 
             for kz in kz_list:
-                dataset_overrides = dict(latent=dict(latent_dim=latent_dim, mi_bits=2.0), transform=dict(mode = 'teacher', sig_embed_x = sig, sig_embed_y = sig))
+                # Critic/Dataset params
+                dataset_overrides = dict(latent=dict(latent_dim=latent_dim, mi_bits=2.0))
+                critic_overrides = {"embed_dim": kz, "encoder_type": "mlp"}
+                training_overrides = dict(n_epoch=20, n_samples=n_samples, show_progress=False)
+                
+                # We do not pass 'outfile' here; the parallel wrapper injects temp files
+                cfg = dict(
+                    setup=setup,
+                    critic_type="hybrid",
+                    dataset_type=dataset_type,
+                    dataset_overrides=dataset_overrides,
+                    critic_overrides=critic_overrides,
+                    training_overrides=training_overrides
+                )
+                configs.append(cfg)
 
-                if critic_type == "hybrid" and kz == 0:
-                    continue  
-
-                critic_overrides = {"embed_dim": kz}
-                training_overrides = dict(n_epoch=n_epoch, n_samples = n_samples)
-
-                print(f'Setup: {setup}, Training override parameters: {training_overrides}')
-                print(f'Dataset Type: {dataset_type}; Dataset override parameters: {dataset_overrides}')
-                print(f'Critic Type: {critic_type}; Critic override parameters: {critic_overrides}')
-
-                mis_dsib_bits = run_dsib_finite(setup = setup, critic_type = critic_type, outfile=outfile, dataset_type=dataset_type, dataset_overrides = dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides)
-
-
+    # 3. Run Parallel
+    print(f"Queueing {len(configs)} configurations...")
+    run_sweep_parallel(
+        func=run_dsib_finite,
+        sweep_configs=configs,
+        final_outfile=outfile,
+        n_jobs=n_jobs
+    )
 
 def infinite_joint_gaussian(output_dir: str):
     outfile = _make_outfile(output_dir, stem="infinite_data_joint_gaussian")

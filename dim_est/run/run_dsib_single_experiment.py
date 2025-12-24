@@ -11,7 +11,7 @@ from pathlib import Path
 from ..models.critic_builders import make_critic
 from ..models.models import DSIB
 from ..training import train_model_infinite_data, train_model_finite_data
-from ..datasets.data_generation import make_data_generator
+from ..datasets.data_generation import make_data_generator, get_finite_dataloaders
 from ..utils.networks import teacher, Dataset
 from ..config.critic_defaults import CRITIC_DEFAULTS
 from ..config.dataset_defaults import DATASET_DEFAULTS 
@@ -23,6 +23,40 @@ from ..config.experiment_config import (
 from ..utils.h5_result_store import H5ResultStore
 from ..utils.version_logs import get_git_commit_hash, is_dirty, get_git_diff
 
+def _get_auto_device(device):
+    """Helper to auto-detect device if None is passed."""
+    if device is not None:
+        return device
+    if torch.cuda.is_available():
+        return 'cuda'
+    if torch.backends.mps.is_available():
+        return 'mps'
+    return 'cpu'
+
+def _infer_data_dimensions(dataset_cfg: dict) -> tuple:
+    """
+    Inspects dataset config to determine output shapes Nx and Ny.
+    This bridges the gap between 'None' in identity transform and explicit ints needed for Critics.
+    """
+    latent_dim = dataset_cfg["latent"]["latent_dim"]
+    trans_cfg = dataset_cfg.get("transform", {})
+    
+    # Check if external data defines dimensions
+    # If source is external, we might not know dims until load. 
+    # But if it's synthetic, we know.
+    
+    # Logic: Use observe_dim if present and not None, else fallback to latent_dim
+    if trans_cfg.get("observe_dim_x") is not None:
+        Nx = trans_cfg["observe_dim_x"]
+    else:
+        Nx = latent_dim
+
+    if trans_cfg.get("observe_dim_y") is not None:
+        Ny = trans_cfg["observe_dim_y"]
+    else:
+        Ny = latent_dim
+        
+    return Nx, Ny
 
 def run_dsib_infinite(
     dataset_type: str = "gaussian_mixture",
@@ -35,12 +69,17 @@ def run_dsib_infinite(
     seed: Optional[int] = None,
     estimator = "lclip",
     optimizer_cls=torch.optim.Adam, 
+    device: Optional[str] = None, 
     device = 'cuda',
     save_trained_model_data_transform: bool = False,
 ):
+    # 0. Auto-detect device
+    device = _get_auto_device(device)
+    print(f"Using device: {device}")
+
     # 1. initialize seed
     if seed is None:
-        seed = np.random.randint(0, 2**32 - 1) # log this seed in the h5 output and other trianing parameters
+        seed = np.random.randint(0, 2**32 - 1) 
 
     set_seed(seed)
 
@@ -51,21 +90,26 @@ def run_dsib_infinite(
     critic_cfg = exp_cfg.critic.cfg
     training_cfg = exp_cfg.training.cfg
 
-    # make sure we have the infinite data config set up:
     _validate_mode(exp_cfg, mode = "infinite_data_iter")
 
-    # ## make device specification and use consistent across elements 
-    # device = training_cfg.get("device", device) ## need to be synced up across training, model and datasets
-
-    # 3. Data Generation -- INFINITE DATA, pass data generator through to training for fresh samples every iteration
+    # 3. Data Generation
+    # Automatically set Nx/Ny in critic based on dataset config
+    auto_nx, auto_ny = _infer_data_dimensions(dataset_cfg)
+    # We update the cfg dict directly. 
+    # Note: If user explicitly provided Nx in overrides, it's already in critic_cfg.
+    # However, to be safe, we usually trust the DATA logic for input sizes over defaults.
+    # If we want to allow manual override, we should check if it was in defaults or overrides.
+    # For now, forcing consistency with data is usually the desired behavior.
+    critic_cfg["Nx"] = auto_nx
+    critic_cfg["Ny"] = auto_ny   
     data_generator = make_data_generator(dataset_type, dataset_cfg, device = device)
-
+    
     # 4. Build Network
     critic, *_ = make_critic(critic_type, critic_cfg) 
     model = DSIB(estimator=estimator, critic=critic)
     
     # 5. Training
-    estimates_mi = train_model_infinite_data(model, data_generator, training_cfg, optimizer_cls=optimizer_cls, device=device)  # returns mi in nats
+    estimates_mi = train_model_infinite_data(model, data_generator, training_cfg, optimizer_cls=optimizer_cls, device=device)
     mis_dsib_bits = np.array(estimates_mi)*np.log2(np.e)            
 
     # 6. Saving
@@ -92,47 +136,84 @@ def run_dsib_finite(
     seed: Optional[int] = None,
     estimator = "lclip",
     optimizer_cls=torch.optim.Adam, 
+    device: Optional[str] = None,
     device = 'cuda',
     save_trained_model_data_transform: bool = False,
 ):
+    # 0. Auto-detect device
+    device = _get_auto_device(device)
+    print(f"Using device: {device}")
+
     # 1. initialize seed
     if seed is None:
-        seed = np.random.randint(0, 2**32 - 1) # log this seed in the h5 output and other trianing parameters
+        seed = np.random.randint(0, 2**32 - 1)
 
     set_seed(seed)
 
     # 2. Build experiment config
     exp_cfg = make_experiment_config(setup = setup, dataset_type=dataset_type, critic_type=critic_type, dataset_overrides=dataset_overrides, critic_overrides=critic_overrides, training_overrides=training_overrides, estimator=estimator, seed=seed, outfile=outfile)
 
+    # Note: dataset_cfg here comes from merger, which now includes the dynamic keys
     dataset_cfg = exp_cfg.dataset.cfg
     critic_cfg = exp_cfg.critic.cfg
     training_cfg = exp_cfg.training.cfg
 
     _validate_mode(exp_cfg, "finite_data_epoch")
 
-    # ## make device specification and use consistent across elements 
-    # device = training_cfg.get("device", device) ## need to be synced up across training, model and datasets
+    # 3. Data Generation --- FINITE DATA
+    train_loader, test_loader, train_eval_loader = get_finite_dataloaders(
+        dataset_type=dataset_type, 
+        dataset_cfg=dataset_cfg, 
+        training_cfg=training_cfg, 
+        device=device
+    )
+    try:
+        # train_loader.dataset is likely a Subset or TensorDataset
+        # We can just peek at the first batch from the loader
+        sample_x, sample_y = next(iter(train_loader))
+        # sample_x shape is [Batch, Dim] or [Batch, C, H, W]
+        # We want the feature dim (everything after Batch)
+        # If flat: [Batch, D] -> D
+        # If image: [Batch, C, H, W] -> We assume Encoder handles this based on encoder_type?
+        # Critic Nx expects an INT usually. 
+        # If using MLP, Nx should be D. 
+        # If using CNN, Nx can be ignored or treated as channels. 
+        
+        if dataset_cfg.get("source") == "external":
+             # For external, we MUST rely on data shape
+             if sample_x.dim() > 1:
+                 critic_cfg["Nx"] = int(np.prod(sample_x.shape[1:]))
+                 critic_cfg["Ny"] = int(np.prod(sample_y.shape[1:]))
+        else:
+            # Synthetic: Use the config inference
+            auto_nx, auto_ny = _infer_data_dimensions(dataset_cfg)
+            critic_cfg["Nx"] = auto_nx
+            critic_cfg["Ny"] = auto_ny
 
-    # 3. Data Generation --- FINITE DATA, create datasets to pass through to training
-    data_generator = make_data_generator(dataset_type, dataset_cfg, device = device)
-    trainSet_X,trainSet_Y = data_generator(training_cfg['n_samples'])  ## training dataset
-    evalSet_X, evalSet_Y = trainSet_X[:min(training_cfg['batch_size'], training_cfg['n_samples'])], trainSet_Y[:min(training_cfg['batch_size'], training_cfg['n_samples'])] # eval set: fixed subset of train dataset to report the training mi
-    testSet_X, testSet_Y = data_generator(training_cfg['batch_size']) # test dataset
-    trainData_ = Dataset(trainSet_X, trainSet_Y)
-    train_data_loader = torch.utils.data.DataLoader(trainData_, batch_size=training_cfg['batch_size'],shuffle=True)
-
+    except Exception as e:
+        print(f"Warning: Could not auto-infer input dimensions from data: {e}")
+        # Fallback to defaults or user overrides
+        pass
+    
     # 4. Build Network
     critic, *_ = make_critic(critic_type, critic_cfg) 
     model = DSIB(estimator=estimator, critic=critic)
     
     # 5. Training
-    estimates_mi_train, estimates_mi_test = train_model_finite_data(model, train_data_loader, evalSet_X, evalSet_Y, testSet_X, testSet_Y,  training_cfg = training_cfg, optimizer_cls=optimizer_cls, device = device)  # returns mi_test and mi_train in nats
+    estimates_mi_train, estimates_mi_test = train_model_finite_data(
+        model, 
+        train_loader=train_loader, 
+        test_loader=test_loader, 
+        train_eval_loader=train_eval_loader,
+        training_cfg=training_cfg, 
+        optimizer_cls=optimizer_cls, 
+        device=device
+    )
 
     mis_dsib_bits_train = np.array(estimates_mi_train)*np.log2(np.e)            
     mis_dsib_bits_test = np.array(estimates_mi_test)*np.log2(np.e)            
 
     # 6. Saving
-    ## quick fields to help navigate the output instead of nested dictionaries. Modify build function to change tags fields; all the information about the run is saved under params
     tags = _build_run_tags(method = 'dsib', dataset_type = dataset_type, critic_type = critic_type, setup = setup, critic_cfg = critic_cfg, training_cfg = training_cfg, estimator = estimator )
     params = _build_run_params(exp_cfg)
     rid = save_run(outfile=outfile, tags=tags, params=params, mi_bits_train=mis_dsib_bits_train, mi_bits_test=mis_dsib_bits_test)
@@ -185,13 +266,6 @@ def merge_with_validation(
     error_prefix: str = "",
     _path: str = "",
 ) -> dict:
-    """
-    Recursively merge `overrides` into `defaults`, validating keys.
-
-    - Any key in `overrides` that does not exist in `defaults` raises KeyError.
-    - If the default value is a dict, the override must also be a dict, and we recurse.
-    - Returns a *new* merged dict, does not mutate `defaults`.
-    """
     # Always work on a deep copy so we never mutate the defaults in-place
     merged = copy.deepcopy(defaults)
 
@@ -199,6 +273,11 @@ def merge_with_validation(
         if k not in defaults:
             prefix = (error_prefix + ": ") if error_prefix else ""
             full_path = f"{_path}{k}"
+            # Allow Phase 1 & 3 keys (source, data_path, split_strategy, split_params)
+            # These are dynamic keys that won't be in the defaults dictionary
+            if k in ["source", "data_path", "split_strategy", "split_params"]:
+                merged[k] = v
+                continue
             raise KeyError(
                 f"{prefix}Invalid override key '{full_path}'. "
                 f"Allowed keys at this level: {list(defaults.keys())}"
@@ -248,6 +327,12 @@ def make_experiment_config(
     # ---- merge dataset ----
     ds_defaults = copy.deepcopy(DATASET_DEFAULTS[dataset_type])
     ds_cfg = merge_with_validation(ds_defaults, dataset_overrides, "dataset overrides")
+    
+    # Phase 1 & 3: Handle dynamic keys extraction for Dataclass
+    source = dataset_overrides.get("source", "synthetic")
+    data_path = dataset_overrides.get("data_path", None)
+    split_strategy = dataset_overrides.get("split_strategy", "none")
+    split_params = dataset_overrides.get("split_params", {})
 
     # ---- merge critic ----
     cr_defaults = copy.deepcopy(CRITIC_DEFAULTS[critic_type])
@@ -257,12 +342,17 @@ def make_experiment_config(
     tr_defaults = copy.deepcopy(TRAINING_DEFAULTS[setup])
     tr_cfg = merge_with_validation(tr_defaults, training_overrides, "training overrides")
 
-    # attach optimizer name --- not in the default training dict. To cahnge optimizer pass it through the run function
     tr_cfg["optimizer_cls_name"] = optimizer_cls.__name__
 
-    # ---- assemble experiment config ----
     return ExperimentConfig(
-        dataset=DatasetConfig(dataset_type=dataset_type, cfg=ds_cfg),
+        dataset=DatasetConfig(
+            dataset_type=dataset_type, 
+            cfg=ds_cfg, 
+            source=source, 
+            data_path=data_path,
+            split_strategy=split_strategy,
+            split_params=split_params
+        ),
         critic=CriticConfig(critic_type=critic_type, cfg=cr_cfg),
         training=TrainingConfig(setup=setup, cfg=tr_cfg),
         outfile=outfile,
@@ -270,13 +360,6 @@ def make_experiment_config(
     )
     
 def save_run(outfile, tags, params, **arrays):
-    """
-    Small convenience wrapper around H5ResultStore.
-    - outfile: path to the .h5 file
-    - tags:    dict, used for querying/grouping
-    - params:  dict, full config/meta (e.g. asdict(exp_cfg), code info, etc.)
-    - arrays:  any named numpy arrays to save, e.g. mi_bits=..., loss=...
-    """
     with H5ResultStore(outfile) as rs:
         rid = rs.new_run(params=params, tags=tags, dedupe_on_fingerprint=False)
         for name, arr in arrays.items():
@@ -287,19 +370,14 @@ def save_run(outfile, tags, params, **arrays):
 
 
 def _build_code_metadata() -> dict:
-    """Capture code-state metadata for reproducibility."""
     code_meta = {
         "git_commit": get_git_commit_hash(),
         "dirty": is_dirty(),
     }
-    # if code_meta["dirty"]:
-    #     code_meta["dirty_diff"] = get_git_diff()
     return code_meta
 
 
 def _build_run_tags(dataset_type: str, critic_type: str, setup: str, critic_cfg: dict, training_cfg: dict, method: str, estimator: str) -> dict:
-    """Lightweight, query-friendly tags for H5ResultStore."""
-    # Decide what the "training length" means
     if setup == "infinite_data_iter":
         length_key = "n_iter"
         length_val = training_cfg.get("n_iter", None)
@@ -311,7 +389,7 @@ def _build_run_tags(dataset_type: str, critic_type: str, setup: str, critic_cfg:
 
         
     return {
-        "method": method, #dsib or whatever else
+        "method": method, 
         "estimator": estimator,
         "dataset_type": dataset_type,
         "critic_type": critic_type,
@@ -322,7 +400,6 @@ def _build_run_tags(dataset_type: str, critic_type: str, setup: str, critic_cfg:
 
 
 def _build_run_params(exp_cfg) -> dict:
-    """Heavier structured metadata; full experiment config + code state."""
     return {
         "experiment_cfg": asdict(exp_cfg),
         "code": _build_code_metadata(),
@@ -334,29 +411,3 @@ def _validate_mode(exp_cfg, mode: str = "infinite_data_iter"):
             f"mode expected {mode}, "
             f"got {exp_cfg.training.setup!r}"
         )
-
-@torch.no_grad()
-def participation_ratio_dim(Z: torch.Tensor, center: bool = True) -> float:
-    """
-    Z: [N, d] encoder outputs, float32/float64, on any device.
-    Returns: scalar effective (intrinsic) dimension estimate.
-    """
-    N, d = Z.shape
-
-    # Optionally mean-center
-    if center:
-        Z = Z - Z.mean(dim=0, keepdim=True)
-
-    # Covariance in feature space: [d, d]
-    # (You can also use SVD on Z directly; effect is the same.)
-    C = (Z.T @ Z) / (N - 1)  # [d, d]
-
-    # Symmetric, so use eigvalsh for numerical stability
-    evals = torch.linalg.eigvalsh(C)
-    evals = torch.clamp(evals.real, min=0.0)  # remove tiny negative noise
-
-    s1 = evals.sum()
-    s2 = (evals ** 2).sum().clamp(min=1e-12)
-
-    D_pr = (s1 ** 2 / s2).item()
-    return D_pr

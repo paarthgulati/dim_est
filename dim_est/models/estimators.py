@@ -1,63 +1,34 @@
-
 import numpy as np
 import torch
 import torch.nn.functional as F
 
-# Check if CUDA or MPS is running
-if torch.cuda.is_available():
-    device = 'cuda'
-elif torch.backends.mps.is_available():
-    device = 'mps'
-else:
-    device = "cpu"
-
-
 def infonce_lower_bound(scores):
     nll = scores.diag().mean() - scores.logsumexp(dim=1)
-    mi = torch.tensor(scores.size(0)).float().log() + nll
+    # Use scores.device to ensure compatibility
+    mi = torch.tensor(scores.size(0), device=scores.device).float().log() + nll
     mi = mi.mean()
     extras = {}
     return mi, extras
 
-# def clip_lower_bound(scores):
-#     nll = scores.diag().mean() - 0.5 * scores.logsumexp(dim=1) - 0.5 * scores.logsumexp(dim=0)
-#     mi = torch.tensor(scores.size(0)).float().log() + nll
-#     mi = mi.mean()
-#     return mi
-
 def clip_lower_bound(scores):
+    # nll terms
     nll_1 = 0.5 * scores.diag().mean() - 0.5 * scores.logsumexp(dim=1) 
     nll_2 = 0.5 * scores.diag().mean() - 0.5 * scores.logsumexp(dim=0)
-    nll = nll_1 + nll_2 #scores.diag().mean() - 0.5 * scores.logsumexp(dim=1) - 0.5 * scores.logsumexp(dim=0)
+    nll = nll_1 + nll_2 
 
-    mi = torch.tensor(scores.size(0)).float().log() + nll
+    # Use scores.device
+    log_N = torch.tensor(scores.size(0), device=scores.device).float().log()
+    
+    mi = log_N + nll
     mi = mi.mean()
 
-    mi_i1 = 0.5*torch.tensor(scores.size(0)).float().log() + nll_1
+    mi_i1 = 0.5*log_N + nll_1
     mi_i1 = mi_i1.mean()
-    mi_i2 = 0.5*torch.tensor(scores.size(0)).float().log() + nll_2
+    mi_i2 = 0.5*log_N + nll_2
     mi_i2 = mi_i2.mean()
 
     extras = dict(mi_i1 = mi_i1, mi_i2 = mi_i2)
-
     return mi, extras
-
-# def clip_lower_bound(scores: torch.Tensor):
-#     """
-#     scores: [N, N] matrix with (i,i) the positive pair.
-#     Returns: total symmetric MI lower bound, and the row/column halves.
-#     """
-#     N = scores.size(0)
-#     diag = scores.diag()                  # shape [N]
-#     lse_row = scores.logsumexp(dim=1)     # shape [N]
-#     lse_col = scores.logsumexp(dim=0)     # shape [N]
-
-#     # Each directional InfoNCE lower bound: log N + E[diag - logsumexp]
-#     mi_row = 0.5 * (np.log(N) + (diag - lse_row).mean())
-#     mi_col = 0.5 * (np.log(N) + (diag - lse_col).mean())
-
-#     mi_total = mi_row + mi_col
-#     return mi_total, mi_row, mi_col
 
 def smile_lower_bound(f, clip=None):
     if clip is not None:
@@ -68,12 +39,10 @@ def smile_lower_bound(f, clip=None):
     dv = f.diag().mean() - z
 
     js = js_fgan_lower_bound(f)
-
     with torch.no_grad():
         dv_js = dv - js
 
     extras = {}
-
     return js + dv_js, extras
 
 def js_fgan_lower_bound(f):
@@ -85,23 +54,23 @@ def js_fgan_lower_bound(f):
                    torch.sum(F.softplus(f_diag))) / (n * (n - 1.))
     return first_term - second_term
     
-def logmeanexp_diag(x, device=device):
+def logmeanexp_diag(x):
     """Compute logmeanexp over the diagonal elements of x."""
     batch_size = x.size(0)
-
     logsumexp = torch.logsumexp(x.diag(), dim=(0,))
     num_elem = batch_size
+    return logsumexp - torch.log(torch.tensor(num_elem, device=x.device).float())
 
-    return logsumexp - torch.log(torch.tensor(num_elem).float()).to(device)
-
-
-def logmeanexp_nodiag(x, dim=None, device=device):
+def logmeanexp_nodiag(x, dim=None):
     batch_size = x.size(0)
+    device = x.device
+    
     if dim is None:
         dim = (0, 1)
 
-    logsumexp = torch.logsumexp(
-        x - torch.diag(np.inf * torch.ones(batch_size).to(device)), dim=dim)
+    # Mask diagonal with -inf
+    mask = torch.diag(torch.full((batch_size,), float('inf'), device=device))
+    logsumexp = torch.logsumexp(x - mask, dim=dim)
 
     try:
         if len(dim) == 1:
@@ -109,5 +78,7 @@ def logmeanexp_nodiag(x, dim=None, device=device):
         else:
             num_elem = batch_size * (batch_size - 1.)
     except ValueError:
+        # fallback if dim was scalar
         num_elem = batch_size - 1
-    return logsumexp - torch.log(torch.tensor(num_elem)).to(device)
+        
+    return logsumexp - torch.log(torch.tensor(num_elem, device=device))

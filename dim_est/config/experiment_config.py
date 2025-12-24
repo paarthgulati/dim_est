@@ -2,7 +2,6 @@
 experiment_config.py
 
 Lightweight dataclasses describing the configuration of a single experiment.
-
 """
 
 from dataclasses import dataclass, field
@@ -17,7 +16,10 @@ class DatasetConfig:
     """
     dataset_type: str        # e.g. "joint_gaussian", "gaussian_mixture", "swiss_roll"
     cfg: Dict[str, Any]      # full config dict for dataset_type see defaults for the entires
-
+    source: str = "synthetic"  # "synthetic" or "external"
+    data_path: Optional[str] = None # Path to .pt or .npy file if source="external"
+    split_strategy: str = "none" # "none", "random_feature", "temporal", "spatial", "augment"
+    split_params: Dict[str, Any] = field(default_factory=dict) # e.g. {"lag": 1, "axis": 2}
 
 @dataclass
 class CriticConfig:
@@ -27,7 +29,9 @@ class CriticConfig:
     """
     critic_type: str         # e.g. "separable", "hybrid", "concat", ...
     cfg: Dict[str, Any]      # full config dict for critic_type see defaults for the entires
-
+    encoder_type: str = "mlp" # "mlp", "resnet18", "cnn", "gru", "custom"
+    share_encoder: bool = False # If True, use same encoder instance for X and Y
+    encoder_kwargs: Dict[str, Any] = field(default_factory=dict) # Extra args like 'pretrained', 'layers'
 
 @dataclass
 class TrainingConfig:
