@@ -53,6 +53,9 @@ def make_data_generator(dataset_type: str, dataset_cfg: dict, device="cuda", dty
         x_obs, y_obs = transform(x_latent, y_latent)
         return x_obs, y_obs
 
+    # ---- NEW: expose internals (stays backward compatible: used when saving the transform itself to later use with a saved model) ----
+    data_generator.transform = transform
+
     return data_generator
 
 def get_finite_dataloaders(dataset_type: str, dataset_cfg: dict, training_cfg: dict, device="cuda", dtype=torch.float32):

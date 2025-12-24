@@ -6,6 +6,7 @@ import math
 import matplotlib.pyplot as plt
 from dataclasses import asdict
 from typing import Any, Dict, Optional, Mapping
+from pathlib import Path
 
 from ..models.critic_builders import make_critic
 from ..models.models import DSIB
@@ -69,6 +70,8 @@ def run_dsib_infinite(
     estimator = "lclip",
     optimizer_cls=torch.optim.Adam, 
     device: Optional[str] = None, 
+    device = 'cuda',
+    save_trained_model_data_transform: bool = False,
 ):
     # 0. Auto-detect device
     device = _get_auto_device(device)
@@ -110,9 +113,15 @@ def run_dsib_infinite(
     mis_dsib_bits = np.array(estimates_mi)*np.log2(np.e)            
 
     # 6. Saving
+    ## quick fields to help navigate the output instead of nested dictionaries. Modify build function to change tags fields; all the information about the run is saved under params
+
     tags = _build_run_tags(method = 'dsib', dataset_type = dataset_type, critic_type = critic_type, setup = setup, critic_cfg = critic_cfg, training_cfg = training_cfg, estimator = estimator )
     params = _build_run_params(exp_cfg)
-    save_run(outfile=outfile, tags=tags, params=params, mi_bits=mis_dsib_bits)
+    rid = save_run(outfile=outfile, tags=tags, params=params, mi_bits=mis_dsib_bits)
+
+    if save_trained_model_data_transform:
+        model.eval()
+        model_path = _save_trained_model(model, outfile, rid, params, tags, transform = data_generator.transform)
 
     return mis_dsib_bits, exp_cfg
 
@@ -128,6 +137,8 @@ def run_dsib_finite(
     estimator = "lclip",
     optimizer_cls=torch.optim.Adam, 
     device: Optional[str] = None,
+    device = 'cuda',
+    save_trained_model_data_transform: bool = False,
 ):
     # 0. Auto-detect device
     device = _get_auto_device(device)
@@ -205,10 +216,42 @@ def run_dsib_finite(
     # 6. Saving
     tags = _build_run_tags(method = 'dsib', dataset_type = dataset_type, critic_type = critic_type, setup = setup, critic_cfg = critic_cfg, training_cfg = training_cfg, estimator = estimator )
     params = _build_run_params(exp_cfg)
-    save_run(outfile=outfile, tags=tags, params=params, mi_bits_train=mis_dsib_bits_train, mi_bits_test=mis_dsib_bits_test)
+    rid = save_run(outfile=outfile, tags=tags, params=params, mi_bits_train=mis_dsib_bits_train, mi_bits_test=mis_dsib_bits_test)
+
+    if save_trained_model_data_transform:
+        model.eval()
+        model_path = _save_trained_model(model, outfile, rid, params, tags, transform = data_generator.transform)
 
     return [mis_dsib_bits_train, mis_dsib_bits_test], exp_cfg
 
+def _save_trained_model(model, outfile, rid, params, tags, transform = None):
+    # strip ".h5" and make the correct outdir from the outfile location:
+    out = Path(outfile)
+    model_dir = out.parent / f"{out.stem}.models"
+    model_dir.mkdir(parents=True, exist_ok=True)
+    
+    # append rid for model path
+    model_path = model_dir / f"{rid}.pt"
+
+    payload = {
+        "state_dict": model.state_dict(),
+        "params": params,     
+        "rid": rid,
+        "pytorch_version": torch.__version__,
+    }
+
+    # Save transform state if it is an nn.Module (TeacherTransform / LinearTransform / IdentityTransform)
+    if transform is not None and isinstance(transform, torch.nn.Module):
+        payload["transform_state_dict"] = transform.state_dict()  # {} for identity, weights for linear/teacher
+        payload["transform_class"] = transform.__class__.__name__
+    else:
+        payload["transform_state_dict"] = None
+        payload["transform_class"] = None
+
+    torch.save(payload, model_path)
+    print(f"Saved trained model checkpoint to {model_path}")
+
+    return model_path
 
 def set_seed(seed):
     random.seed(seed)
