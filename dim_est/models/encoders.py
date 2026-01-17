@@ -4,29 +4,33 @@ import torchvision.models as models
 import importlib
 from typing import List, Optional, Union, Tuple
 
+# --- CHANGED: Import the robust mlp class ---
+from ..utils.networks import mlp
+
 class MLPEncoder(nn.Module):
-    def __init__(self, input_dim: int, hidden_dim: int, output_dim: int, layers: int, activation: str = "leaky_relu"):
+    def __init__(
+        self, 
+        input_dim: int, 
+        hidden_dim: int, 
+        output_dim: int, 
+        layers: int, 
+        activation: str = "leaky_relu",
+        # --- NEW: Robustness args ---
+        use_norm: bool = False,
+        dropout: float = 0.0
+    ):
         super().__init__()
-        activation_fn = {
-            'relu': nn.ReLU,
-            'sigmoid': nn.Sigmoid,
-            'tanh': nn.Tanh,
-            'leaky_relu': nn.LeakyReLU,
-            'silu': nn.SiLU,
-        }[activation]
         
-        seq = []
-        # Input layer
-        seq.append(nn.Linear(input_dim, hidden_dim))
-        seq.append(activation_fn())
-        # Hidden layers
-        for _ in range(layers):
-            seq.append(nn.Linear(hidden_dim, hidden_dim))
-            seq.append(activation_fn())
-        # Output layer (linear projection to embedding)
-        seq.append(nn.Linear(hidden_dim, output_dim))
-        
-        self.net = nn.Sequential(*seq)
+        # Use the robust mlp class from networks.py
+        self.net = mlp(
+            dim=input_dim,
+            hidden_dim=hidden_dim,
+            output_dim=output_dim,
+            layers=layers,
+            activation=activation,
+            use_norm=use_norm,
+            dropout=dropout
+        )
 
     def forward(self, x):
         # Flatten if input is > 2D (e.g. image provided to MLP)
@@ -146,7 +150,20 @@ def make_encoder(
         hidden_dim = kwargs.get("hidden_dim", 128)
         layers = kwargs.get("layers", 2)
         activation = kwargs.get("activation", "leaky_relu")
-        return MLPEncoder(input_dim, hidden_dim, embed_dim, layers, activation)
+        
+        # --- NEW: Extract robustness args ---
+        use_norm = kwargs.get("use_norm", False)
+        dropout = kwargs.get("dropout", 0.0)
+        
+        return MLPEncoder(
+            input_dim, 
+            hidden_dim, 
+            embed_dim, 
+            layers, 
+            activation, 
+            use_norm=use_norm, 
+            dropout=dropout
+        )
     
     elif "resnet" in t:
         # kwargs: pretrained
@@ -154,10 +171,6 @@ def make_encoder(
         return ResNetEncoder(embed_dim, variant=t, pretrained=pretrained)
     
     elif t == "cnn":
-        # kwargs: input_channels, channels
-        # Note: input_dim is treated as input_channels here if provided, 
-        # but often input_dim from config is flat dimension. 
-        # For CNNs, explicit 'input_channels' in kwargs is safer.
         input_channels = kwargs.get("input_channels", 3) 
         channels = kwargs.get("channels", [32, 64, 128])
         return CNNEncoder(input_channels, embed_dim, channels)
@@ -173,12 +186,10 @@ def make_encoder(
         return TransformerEncoder(input_dim, embed_dim, nhead=nhead, num_layers=num_layers)
         
     elif t == "custom":
-        # kwargs must contain 'class_path'
         class_path = kwargs.get("class_path")
         if not class_path:
             raise ValueError("For 'custom' encoder, 'class_path' must be provided in encoder_kwargs.")
         Cls = _load_custom_class(class_path)
-        # We assume the custom class takes (input_dim, embed_dim, **kwargs)
         return Cls(input_dim, embed_dim, **kwargs)
 
     else:

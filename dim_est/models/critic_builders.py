@@ -3,6 +3,8 @@ from typing import Dict, Any, Tuple
 import torch.nn as nn
 import copy
 
+from ..utils.networks import mlp
+
 from ..models.critics import (
     SeparableCritic,
     SeparableAugmentedCritic,
@@ -44,6 +46,7 @@ def build_separable_critic(
     activation: str = "leaky_relu",
     encoder_type: str = "mlp",
     share_encoder: bool = False,
+    use_norm: bool = False,
     encoder_kwargs: dict = None,
     **kwargs # Catch legacy args not explicitly used
 ) -> Tuple[nn.Module, Dict[str, Any], Dict[str, Any]]:
@@ -71,6 +74,7 @@ def build_separable_critic(
         "activation": activation,
         "encoder_type": encoder_type,
         "share_encoder": share_encoder,
+        "use_norm": use_norm,
         "encoder_kwargs": encoder_kwargs,
         **kwargs
     }
@@ -86,6 +90,7 @@ def build_bilinear_critic(
     activation: str = "leaky_relu",
     encoder_type: str = "mlp",
     share_encoder: bool = False,
+    use_norm: bool = False,
     encoder_kwargs: dict = None,
     **kwargs
 ) -> Tuple[nn.Module, Dict[str, Any], Dict[str, Any]]:
@@ -107,6 +112,7 @@ def build_bilinear_critic(
         "activation": activation,
         "encoder_type": encoder_type,
         "share_encoder": share_encoder,
+        "use_norm": use_norm,
         "encoder_kwargs": encoder_kwargs,
         **kwargs
     }
@@ -123,6 +129,7 @@ def build_separable_augmented_critic(
     quad_kind: str = "full",
     encoder_type: str = "mlp",
     share_encoder: bool = False,
+    use_norm: bool = False,
     encoder_kwargs: dict = None,
     **kwargs
 ) -> Tuple[nn.Module, Dict[str, Any], Dict[str, Any]]:
@@ -149,6 +156,7 @@ def build_separable_augmented_critic(
         "activation": activation, "quad_kind": quad_kind,
         "encoder_type": encoder_type,
         "share_encoder": share_encoder,
+        "use_norm": use_norm,
         "encoder_kwargs": encoder_kwargs,
         **kwargs
     }
@@ -166,6 +174,8 @@ def build_hybrid_critic(
     pair_layers: int = 2,
     encoder_type: str = "mlp",
     share_encoder: bool = False,
+    use_norm: bool = False,
+    dropout: float = 0.0,
     encoder_kwargs: dict = None,
     **kwargs
 ) -> Tuple[nn.Module, Dict[str, Any], Dict[str, Any]]:
@@ -184,15 +194,19 @@ def build_hybrid_critic(
     else:
         encoder_y = make_encoder(encoder_type, input_dim=Ny, embed_dim=embed_dim, **y_kwargs)
 
-    # 2. Pair MLP (Always MLP for Hybrid Head)
-    from ..utils.networks import mlp
+    # 2. Pair MLP
+    hidden_dims = [pair_hidden_dim] * (pair_layers + 1)
+    
     pair_mlp = mlp(
-        dim=embed_dim + embed_dim,
-        hidden_dim=pair_hidden_dim,
-        output_dim=1,
-        layers=pair_layers,
+        dim=embed_dim + embed_dim,       # Input dim
+        hidden_dim=pair_hidden_dim,      # Hidden width
+        output_dim=1,                    # Output dim
+        layers=pair_layers,              # Depth
         activation=activation,
-    )
+        use_norm=use_norm,               # Pass robust args
+        dropout=dropout
+    )    
+
     critic = HybridCritic(encoder_x=encoder_x, encoder_y=encoder_y, pair_mlp=pair_mlp)
 
     params = {
@@ -201,6 +215,7 @@ def build_hybrid_critic(
         "pair_hidden_dim": pair_hidden_dim, "pair_layers": pair_layers,
         "encoder_type": encoder_type,
         "share_encoder": share_encoder,
+        "use_norm": use_norm,
         "encoder_kwargs": encoder_kwargs,
         **kwargs
     }
@@ -215,26 +230,29 @@ def build_concat_critic(
     pair_hidden_dim: int = 128,
     pair_layers: int = 2,
     activation: str = "leaky_relu",
+    use_norm: bool = False,
+    dropout: float = 0.0,
     **kwargs
 ) -> Tuple[nn.Module, Dict[str, Any], Dict[str, Any]]:
     """
     Concat critic typically doesn't use separate encoders, so we ignore encoder_type here
     unless we want to add feature extraction before concatenation later.
-    """
-    from ..utils.networks import mlp
+    """    
     pair_mlp = mlp(
         dim=Nx + Ny,
         hidden_dim=pair_hidden_dim,
         output_dim=1,
         layers=pair_layers,
         activation=activation,
-    )
+        use_norm=use_norm,
+        dropout=dropout
+    )    
     critic = ConcatCritic(Nx=Nx, Ny=Ny, pair_mlp=pair_mlp)
 
     params = {
         "Nx": Nx, "Ny": Ny,
         "pair_hidden_dim": pair_hidden_dim, "pair_layers": pair_layers,
-        "activation": activation,
+        "activation": activation, "use_norm": use_norm,
         **kwargs
     }
     tags = {"critic_type": "concat"}

@@ -1,3 +1,4 @@
+from xml.parsers.expat import model
 import torch
 import numpy as np
 import random
@@ -6,6 +7,7 @@ import math
 import matplotlib.pyplot as plt
 from dataclasses import asdict
 from typing import Any, Dict, Optional, Mapping
+from pathlib import Path
 
 from ..models.critic_builders import make_critic
 from ..models.models import DSIB
@@ -69,6 +71,7 @@ def run_dsib_infinite(
     estimator = "lclip",
     optimizer_cls=torch.optim.Adam, 
     device: Optional[str] = None, 
+    save_trained_model_data_transform: bool = False,
 ):
     # 0. Auto-detect device
     device = _get_auto_device(device)
@@ -106,15 +109,21 @@ def run_dsib_infinite(
     model = DSIB(estimator=estimator, critic=critic)
     
     # 5. Training
-    estimates_mi = train_model_infinite_data(model, data_generator, training_cfg, optimizer_cls=optimizer_cls, device=device)
+    estimates_mi,  trace_cov_results = train_model_infinite_data(model, data_generator, training_cfg, optimizer_cls=optimizer_cls, device=device)
     mis_dsib_bits = np.array(estimates_mi)*np.log2(np.e)            
 
     # 6. Saving
+    ## quick fields to help navigate the output instead of nested dictionaries. Modify build function to change tags fields; all the information about the run is saved under params
+
     tags = _build_run_tags(method = 'dsib', dataset_type = dataset_type, critic_type = critic_type, setup = setup, critic_cfg = critic_cfg, training_cfg = training_cfg, estimator = estimator )
     params = _build_run_params(exp_cfg)
-    save_run(outfile=outfile, tags=tags, params=params, mi_bits=mis_dsib_bits)
+    rid = save_run(outfile=outfile, tags=tags, params=params, mi_bits=mis_dsib_bits)
 
-    return mis_dsib_bits, exp_cfg
+    if save_trained_model_data_transform:
+        model.eval()
+        model_path = _save_trained_model(model, outfile, rid, params, tags, transform = data_generator.transform)
+
+    return mis_dsib_bits, trace_cov_results, exp_cfg
 
 def run_dsib_finite(
     dataset_type: str = "gaussian_mixture",
@@ -128,6 +137,7 @@ def run_dsib_finite(
     estimator = "lclip",
     optimizer_cls=torch.optim.Adam, 
     device: Optional[str] = None,
+    save_trained_model_data_transform: bool = False,
 ):
     # 0. Auto-detect device
     device = _get_auto_device(device)
@@ -149,12 +159,14 @@ def run_dsib_finite(
 
     _validate_mode(exp_cfg, "finite_data_epoch")
 
-    # 3. Data Generation --- FINITE DATA
-    train_loader, test_loader, train_eval_loader = get_finite_dataloaders(
+# 3. Data Generation
+    train_loader, test_loader, train_subset_loader = get_finite_dataloaders(
         dataset_type=dataset_type, 
         dataset_cfg=dataset_cfg, 
         training_cfg=training_cfg, 
-        device=device
+        device=device,
+        train_dataset_override=dataset_overrides.get('train_dataset') if dataset_overrides else None,
+        test_dataset_override=dataset_overrides.get('test_dataset') if dataset_overrides else None
     )
     try:
         # train_loader.dataset is likely a Subset or TensorDataset
@@ -178,6 +190,7 @@ def run_dsib_finite(
             auto_nx, auto_ny = _infer_data_dimensions(dataset_cfg)
             critic_cfg["Nx"] = auto_nx
             critic_cfg["Ny"] = auto_ny
+            data_generator = make_data_generator(dataset_type, dataset_cfg, device = device)
 
     except Exception as e:
         print(f"Warning: Could not auto-infer input dimensions from data: {e}")
@@ -189,26 +202,72 @@ def run_dsib_finite(
     model = DSIB(estimator=estimator, critic=critic)
     
     # 5. Training
-    estimates_mi_train, estimates_mi_test = train_model_finite_data(
+    mi_train_trace, mi_test_trace, final_train_mi, final_test_mi, final_pr_train, final_pr_test, trace_cov_results = train_model_finite_data(
         model, 
         train_loader=train_loader, 
         test_loader=test_loader, 
-        train_eval_loader=train_eval_loader,
+        train_subset_loader=train_subset_loader, # Pass the subset loader
         training_cfg=training_cfg, 
         optimizer_cls=optimizer_cls, 
         device=device
     )
 
-    mis_dsib_bits_train = np.array(estimates_mi_train)*np.log2(np.e)            
-    mis_dsib_bits_test = np.array(estimates_mi_test)*np.log2(np.e)            
+    # Save the traces
+    mis_dsib_bits_train = np.array(mi_train_trace) * np.log2(np.e)            
+    mis_dsib_bits_test = np.array(mi_test_trace) * np.log2(np.e)
+    final_results = {
+        "final_train_mi_bits": np.array([final_train_mi * np.log2(np.e)]),
+        "final_test_mi_bits":  np.array([final_test_mi * np.log2(np.e)])
+    }
 
     # 6. Saving
     tags = _build_run_tags(method = 'dsib', dataset_type = dataset_type, critic_type = critic_type, setup = setup, critic_cfg = critic_cfg, training_cfg = training_cfg, estimator = estimator )
     params = _build_run_params(exp_cfg)
-    save_run(outfile=outfile, tags=tags, params=params, mi_bits_train=mis_dsib_bits_train, mi_bits_test=mis_dsib_bits_test)
+    
+    rid = save_run(
+        outfile=outfile, 
+        tags=tags, 
+        params=params, 
+        mi_bits_train=mis_dsib_bits_train, 
+        mi_bits_test=mis_dsib_bits_test,
+        **final_results
+    )
 
-    return [mis_dsib_bits_train, mis_dsib_bits_test], exp_cfg
 
+    if save_trained_model_data_transform:
+        model.eval()
+        model_path = _save_trained_model(model, outfile, rid, params, tags, transform = data_generator.transform)
+
+    return [mis_dsib_bits_train, mis_dsib_bits_test], [np.array([final_train_mi * np.log2(np.e)]), np.array([final_test_mi * np.log2(np.e)])], [final_pr_train, final_pr_test], trace_cov_results, exp_cfg
+
+def _save_trained_model(model, outfile, rid, params, tags, transform = None):
+    # strip ".h5" and make the correct outdir from the outfile location:
+    out = Path(outfile)
+    model_dir = out.parent / f"{out.stem}.models"
+    model_dir.mkdir(parents=True, exist_ok=True)
+    
+    # append rid for model path
+    model_path = model_dir / f"{rid}.pt"
+
+    payload = {
+        "state_dict": model.state_dict(),
+        "params": params,     
+        "rid": rid,
+        "pytorch_version": torch.__version__,
+    }
+
+    # Save transform state if it is an nn.Module (TeacherTransform / LinearTransform / IdentityTransform)
+    if transform is not None and isinstance(transform, torch.nn.Module):
+        payload["transform_state_dict"] = transform.state_dict()  # {} for identity, weights for linear/teacher
+        payload["transform_class"] = transform.__class__.__name__
+    else:
+        payload["transform_state_dict"] = None
+        payload["transform_class"] = None
+
+    torch.save(payload, model_path)
+    print(f"Saved trained model checkpoint to {model_path}")
+
+    return model_path
 
 def set_seed(seed):
     random.seed(seed)

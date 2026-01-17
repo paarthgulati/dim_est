@@ -37,6 +37,8 @@ jobs/
 # HDF5 files
 *.h5
 *.hdf5
+*.gif
+temp_finite.h5
 
 # --------------------
 # Editor / OS

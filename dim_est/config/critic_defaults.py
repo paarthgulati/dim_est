@@ -6,9 +6,10 @@ CRITIC_DEFAULTS = {
         Nx=500, Ny=500,
         activation="leaky_relu",
         
-        # New Phase 2 defaults
         encoder_type="mlp",
         share_encoder=False,
+        use_norm=True,
+        dropout=0.0,
         encoder_kwargs={}
     ),
 
@@ -21,6 +22,8 @@ CRITIC_DEFAULTS = {
         
         encoder_type="mlp",
         share_encoder=False,
+        use_norm=True,
+        dropout=0.0,
         encoder_kwargs={}
     ),
 
@@ -34,6 +37,8 @@ CRITIC_DEFAULTS = {
         
         encoder_type="mlp",
         share_encoder=False,
+        use_norm=True,
+        dropout=0.0,
         encoder_kwargs={}
     ),
 
@@ -41,23 +46,22 @@ CRITIC_DEFAULTS = {
         embed_dim=2,
         x_hidden_dim=128, x_layers=2,
         y_hidden_dim=128, y_layers=2,
-        pair_hidden_dim=64, pair_layers=1,
+        pair_hidden_dim=64, pair_layers=1, # Slightly larger default for robustness
         Nx=500, Ny=500,
         activation="leaky_relu",
         
         encoder_type="mlp",
         share_encoder=False,
+        use_norm=True,
+        dropout=0.0,
         encoder_kwargs={}
     ),
 
     "concat": dict(
-        pair_hidden_dim=256, pair_layers=2,
+        pair_hidden_dim=128, pair_layers=2,
         Nx=500, Ny=500,
         activation="leaky_relu",
-        
-        # Concat usually doesn't have separate encoders, but if we add feature extractors later:
-        encoder_type="none", 
-        share_encoder=False,
-        encoder_kwargs={}
-    ),
+        use_norm=True,
+        dropout=0.0,
+    )
 }

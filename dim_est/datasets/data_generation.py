@@ -53,110 +53,176 @@ def make_data_generator(dataset_type: str, dataset_cfg: dict, device="cuda", dty
         x_obs, y_obs = transform(x_latent, y_latent)
         return x_obs, y_obs
 
+    # ---- NEW: expose internals (stays backward compatible: used when saving the transform itself to later use with a saved model) ----
+    data_generator.transform = transform
+
     return data_generator
 
-def get_finite_dataloaders(dataset_type: str, dataset_cfg: dict, training_cfg: dict, device="cuda", dtype=torch.float32):
+def get_finite_dataloaders(
+    dataset_type: str, 
+    dataset_cfg: dict, 
+    training_cfg: dict, 
+    device="cuda", 
+    dtype=torch.float32,
+    train_dataset_override=None,
+    test_dataset_override=None
+):
     """
     Prepare DataLoaders for finite data training.
-    Handles generation (synthetic) or loading (external) and splitting.
+    
+    Priority:
+    1. If `train_dataset_override` is provided, use that (and test_override).
+    2. Else, generate data using `dataset_cfg` (Source=Synthetic/External) + Split Strategies.
     """
-    source = dataset_cfg.get("source", "synthetic")
-    split_strategy = dataset_cfg.get("split_strategy", "none")
-    split_params = dataset_cfg.get("split_params", {})
     batch_size = training_cfg.get("batch_size", 128)
+    # Allow a larger batch size for evaluation if specified, otherwise default to training batch size
+    eval_batch_size = training_cfg.get("eval_batch_size", batch_size)
     
-    full_dataset = None
+    train_dataset = None
+    test_dataset = None
 
-    # 1. Acquire Data (Synthetic or External)
-    if source == "synthetic":
-        n_samples = training_cfg.get("n_samples", 4096)
-        generator = make_data_generator(dataset_type, dataset_cfg, device=device, dtype=dtype)
-        full_x, full_y = generator(n_samples)
-        full_x, full_y = full_x.cpu(), full_y.cpu()
-        
-        if split_strategy == "none":
-            full_dataset = TensorDataset(full_x, full_y)
-        else:
-            data_source = full_x
+    # --- BRANCH A: User provided explicit datasets (The "Override" Logic) ---
+    if train_dataset_override is not None:
+        train_dataset = train_dataset_override
+        if test_dataset_override is None:
+             raise ValueError("If train_dataset_override is provided, test_dataset_override must also be provided.")
+        test_dataset = test_dataset_override
 
-    elif source == "external":
-        path = dataset_cfg.get("data_path")
-        if not path or not os.path.exists(path):
-            raise ValueError(f"Source is external but data_path {path} is invalid.")
-        
-        data = torch.load(path, map_location="cpu")
-        
-        has_x = False
-        has_y = False
-        
-        # Handle tuple, dict, or tensor
-        if isinstance(data, (tuple, list)) and len(data) == 2:
-            raw_x, raw_y = data
-            has_x, has_y = True, True
-        elif isinstance(data, dict):
-            if "x" in data: raw_x, has_x = data["x"], True
-            if "y" in data: raw_y, has_y = data["y"], True
-        elif isinstance(data, torch.Tensor):
-            raw_x, has_x = data, True
-        else:
-             raise ValueError("External data format not recognized.")
-        
-        if split_strategy == "none":
-            if not (has_x and has_y):
-                 raise ValueError("split_strategy='none' requires both X and Y.")
-            full_dataset = TensorDataset(raw_x, raw_y)
-        else:
-            if not has_x:
-                raise ValueError(f"split_strategy='{split_strategy}' requires 'x'.")
-            data_source = raw_x
-
+    # --- BRANCH B: Generate from Config (Your Original Logic) ---
     else:
-        raise ValueError(f"Unknown data source: {source}")
+        source = dataset_cfg.get("source", "synthetic")
+        split_strategy = dataset_cfg.get("split_strategy", "none")
+        split_params = dataset_cfg.get("split_params", {})
+        
+        full_dataset = None
+        data_source = None # To hold raw tensor if needed for splitting wrappers
 
-    # 2. Apply Splitting Wrappers
-    if full_dataset is None:
-        if split_strategy == "random_feature":
-            fraction = split_params.get("fraction", 0.5)
-            # Pass seed if provided, else default
-            seed = split_params.get("seed", 42) 
-            full_dataset = RandomFeatureDataset(data_source, fraction=fraction, seed=seed)
+        # --- NEW: Explicit Test Size Logic ---
+        # If n_test_samples is provided, n_samples is treated as n_train_samples
+        n_test_explicit = training_cfg.get("n_test_samples", None)
+        n_samples_cfg = training_cfg.get("n_samples", 4096)
+
+        # 1. Acquire Data
+        if source == "synthetic":
+            if n_test_explicit is not None:
+                # Interpretation: n_samples is Train, n_test_explicit is Test
+                total_gen = n_samples_cfg + n_test_explicit
+            else:
+                # Interpretation: n_samples is Total
+                total_gen = n_samples_cfg
+
+            # Use the make_data_generator you already have
+            generator = make_data_generator(dataset_type, dataset_cfg, device=device) 
+            full_x, full_y = generator(total_gen)
             
-        elif split_strategy == "temporal":
-            lag = split_params.get("lag", 1)
-            full_dataset = TemporalDataset(data_source, lag=lag)
+            # Move to CPU for dataset storage to save GPU ram
+            full_x, full_y = full_x.cpu(), full_y.cpu()
             
-        elif split_strategy == "spatial":
-            axis = split_params.get("axis", 2)
-            mode = split_params.get("mode", "axis")
-            diag_dir = split_params.get("diagonal_dir", 1)
-            full_dataset = SpatialSplitDataset(data_source, mode=mode, axis=axis, diagonal_dir=diag_dir)
+            if split_strategy == "none":
+                full_dataset = TensorDataset(full_x, full_y)
+            else:
+                data_source = full_x
+
+        elif source == "external":
+            path = dataset_cfg.get("data_path")
+            if not path or not os.path.exists(path):
+                raise ValueError(f"Source is external but data_path {path} is invalid.")
             
-        elif split_strategy == "augment":
-            spec = split_params.get("transform_spec", "crop_flip")
-            full_dataset = AugmentationDataset(data_source, transform_spec=spec)
+            data = torch.load(path, map_location="cpu")
             
+            has_x = False
+            has_y = False
+            
+            # Handle tuple, dict, or tensor
+            if isinstance(data, (tuple, list)) and len(data) == 2:
+                raw_x, raw_y = data
+                has_x, has_y = True, True
+            elif isinstance(data, dict):
+                if "x" in data: raw_x, has_x = data["x"], True
+                if "y" in data: raw_y, has_y = data["y"], True
+            elif isinstance(data, torch.Tensor):
+                raw_x, has_x = data, True
+            else:
+                 raise ValueError("External data format not recognized.")
+            
+            if split_strategy == "none":
+                if not (has_x and has_y):
+                     raise ValueError("split_strategy='none' requires both X and Y.")
+                full_dataset = TensorDataset(raw_x, raw_y)
+            else:
+                if not has_x:
+                    raise ValueError(f"split_strategy='{split_strategy}' requires 'x'.")
+                data_source = raw_x
         else:
-            raise ValueError(f"Unknown split_strategy: {split_strategy}")
+            raise ValueError(f"Unknown data source: {source}")
 
-    # 3. Split Train/Test/Eval (90/10)
-    total_len = len(full_dataset)
-    train_frac = 0.9
-    train_len = int(train_frac * total_len)
-    test_len = total_len - train_len
-    
-    train_dataset, test_dataset = random_split(
-        full_dataset, [train_len, test_len], 
-        generator=torch.Generator().manual_seed(42) 
-    )
+        # 2. Apply Splitting Wrappers (if needed)
+        if full_dataset is None:
+            if split_strategy == "random_feature":
+                fraction = split_params.get("fraction", 0.5)
+                seed = split_params.get("seed", 42) 
+                full_dataset = RandomFeatureDataset(data_source, fraction=fraction, seed=seed)
+                
+            elif split_strategy == "temporal":
+                lag = split_params.get("lag", 1)
+                full_dataset = TemporalDataset(data_source, lag=lag)
+                
+            elif split_strategy == "spatial":
+                axis = split_params.get("axis", 2)
+                mode = split_params.get("mode", "axis")
+                diag_dir = split_params.get("diagonal_dir", 1)
+                full_dataset = SpatialSplitDataset(data_source, mode=mode, axis=axis, diagonal_dir=diag_dir)
+                
+            elif split_strategy == "augment":
+                spec = split_params.get("transform_spec", "crop_flip")
+                full_dataset = AugmentationDataset(data_source, transform_spec=spec)
+            else:
+                raise ValueError(f"Unknown split_strategy: {split_strategy}")
 
-    indices = list(range(min(len(train_dataset), test_len)))
-    train_eval_dataset = Subset(train_dataset, indices)
+        # 3. Split Train/Test (90/10 or Configurable)
+        total_len = len(full_dataset)
+        
+        # --- NEW: Explicit Split Logic ---
+        if n_test_explicit is not None and source == "synthetic":
+             if n_test_explicit >= total_len:
+                 raise ValueError(f"Requested test size {n_test_explicit} >= total data {total_len}")
+             
+             test_len = n_test_explicit
+             train_len = total_len - test_len
+             # Note: If wrappers reduced data size, 'train_len' will absorb the loss
+        else:
+            # Use config ratio if available, else 0.9
+            train_frac = dataset_cfg.get("train_split_ratio", 0.9)
+            train_len = int(train_frac * total_len)
+            test_len = total_len - train_len
+        
+        train_dataset, test_dataset = random_split(
+            full_dataset, [train_len, test_len], 
+            generator=torch.Generator().manual_seed(42) 
+        )
 
+    # --- COMMON: Create Loaders ---
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
-    train_eval_loader = DataLoader(train_eval_dataset, batch_size=batch_size, shuffle=False)
+    test_loader = DataLoader(test_dataset, batch_size=eval_batch_size, shuffle=False)
 
-    return train_loader, test_loader, train_eval_loader
+    # 4. Create "Subset" Loader for Training Eval
+    # This logic replaces your fixed "train_eval_loader = Subset(indices)"
+    # It allows the user to specify via config how many samples to track.
+    
+    train_subset_loader = None
+    eval_train_mode = training_cfg.get("eval_train_mode", False)
+
+    if isinstance(eval_train_mode, int) and eval_train_mode > 0:
+        # User wants to track exactly N samples (e.g., 2000)
+        subset_size = min(len(train_dataset), eval_train_mode)
+        indices = torch.randperm(len(train_dataset))[:subset_size]
+        subset_ds = Subset(train_dataset, indices)
+        train_subset_loader = DataLoader(subset_ds, batch_size=eval_batch_size, shuffle=False)
+    elif eval_train_mode is True or eval_train_mode == 'full':
+        # User wants full training set tracking (no subset needed, training loop handles logic)
+        train_subset_loader = None 
+
+    return train_loader, test_loader, train_subset_loader
 
 def _validate_dataset_cfg(dataset_type: str, dataset_cfg: dict) -> None:
     """Check that latent/transform keys are valid for this dataset + mode."""
