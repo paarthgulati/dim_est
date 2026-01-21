@@ -1,7 +1,7 @@
 import os, datetime
 import argparse
 import itertools
-from dim_est.run.run_dsib_single_experiment import run_dsib_infinite, run_dsib_finite
+from dim_est.dim_est.run.run_single_experiment import run_dsib_infinite, run_dsib_finite
 from dim_est.run.parallel_sweeps import run_sweep_parallel
 from dim_est.tests import quick_test
 

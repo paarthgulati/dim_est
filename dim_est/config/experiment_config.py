@@ -22,6 +22,18 @@ class DatasetConfig:
     split_params: Dict[str, Any] = field(default_factory=dict) # e.g. {"lag": 1, "axis": 2}
 
 @dataclass
+class ModelConfig:
+    """
+    Configuration for the high-level Information Bottleneck model (DSIB vs DVSIB).
+    """
+    model_type: str = "dsib"  # "dsib" or "dvsib"
+    
+    # Store model-specific params like beta here
+    # e.g. {"beta": 256.0} for DVSIB
+    params: Dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass
 class CriticConfig:
     """
     Configuration for the critic / encoder architecture.
@@ -31,6 +43,7 @@ class CriticConfig:
     cfg: Dict[str, Any]      # full config dict for critic_type see defaults for the entires
     encoder_type: str = "mlp" # "mlp", "resnet18", "cnn", "gru", "custom"
     share_encoder: bool = False # If True, use same encoder instance for X and Y
+    variational: bool = False  # If True, use variational encoders
     encoder_kwargs: Dict[str, Any] = field(default_factory=dict) # Extra args like 'pretrained', 'layers'
 
 @dataclass
@@ -52,11 +65,13 @@ class ExperimentConfig:
     Contains:
     - dataset: fully-prepared DatasetConfig (defaults+overrides already merged)
     - critic: fully-prepared CriticConfig  (defaults+overrides already merged)
+    - model: fully-prepared ModelConfig  (defaults+overrides already merged)
     - training: fully-prepared TrainingConfig  (defaults+overrides already merged)
     - outfile: HDF5 path where results will be written
     """
     dataset: DatasetConfig
     critic: CriticConfig
+    model: ModelConfig
     training: TrainingConfig
     outfile: str = "h5_results/test.h5"
     seed: Optional[int] = None

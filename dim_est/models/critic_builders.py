@@ -48,6 +48,7 @@ def build_separable_critic(
     share_encoder: bool = False,
     use_norm: bool = False,
     encoder_kwargs: dict = None,
+    variational: bool = False,
     **kwargs # Catch legacy args not explicitly used
 ) -> Tuple[nn.Module, Dict[str, Any], Dict[str, Any]]:
 
@@ -59,13 +60,13 @@ def build_separable_critic(
     y_kwargs = _prepare_encoder_kwargs(cfg_proxy, "y", activation)
 
     # Build X Encoder
-    encoder_x = make_encoder(encoder_type, input_dim=Nx, embed_dim=embed_dim, **x_kwargs)
+    encoder_x = make_encoder(encoder_type, input_dim=Nx, embed_dim=embed_dim, variational=variational, **x_kwargs)
     
     # Build Y Encoder
     if share_encoder:
         encoder_y = encoder_x
     else:
-        encoder_y = make_encoder(encoder_type, input_dim=Ny, embed_dim=embed_dim, **y_kwargs)
+        encoder_y = make_encoder(encoder_type, input_dim=Ny, embed_dim=embed_dim, variational=variational, **y_kwargs)
 
     critic = SeparableCritic(encoder_x, encoder_y)
 
@@ -75,10 +76,11 @@ def build_separable_critic(
         "encoder_type": encoder_type,
         "share_encoder": share_encoder,
         "use_norm": use_norm,
+        "variational": variational,
         "encoder_kwargs": encoder_kwargs,
         **kwargs
     }
-    tags = {"critic_type": "separable", "embed_dim": embed_dim, "encoder": encoder_type}
+    tags = {"critic_type": "separable", "embed_dim": embed_dim, "encoder": encoder_type, "variational": variational}
     return critic, params, tags
 
 
@@ -91,6 +93,7 @@ def build_bilinear_critic(
     encoder_type: str = "mlp",
     share_encoder: bool = False,
     use_norm: bool = False,
+    variational: bool = False,
     encoder_kwargs: dict = None,
     **kwargs
 ) -> Tuple[nn.Module, Dict[str, Any], Dict[str, Any]]:
@@ -99,12 +102,11 @@ def build_bilinear_critic(
     x_kwargs = _prepare_encoder_kwargs(cfg_proxy, "x", activation)
     y_kwargs = _prepare_encoder_kwargs(cfg_proxy, "y", activation)
 
-    encoder_x = make_encoder(encoder_type, input_dim=Nx, embed_dim=embed_dim, **x_kwargs)
+    encoder_x = make_encoder(encoder_type, input_dim=Nx, embed_dim=embed_dim, variational=variational, **x_kwargs)
     if share_encoder:
         encoder_y = encoder_x
     else:
-        encoder_y = make_encoder(encoder_type, input_dim=Ny, embed_dim=embed_dim, **y_kwargs)
-
+        encoder_y = make_encoder(encoder_type, input_dim=Ny, embed_dim=embed_dim, variational=variational, **y_kwargs)
     critic = BiCritic(encoder_x, encoder_y, embed_dim=embed_dim)
 
     params = {
@@ -113,10 +115,11 @@ def build_bilinear_critic(
         "encoder_type": encoder_type,
         "share_encoder": share_encoder,
         "use_norm": use_norm,
+        "variational": variational,
         "encoder_kwargs": encoder_kwargs,
         **kwargs
     }
-    tags = {"critic_type": "bi", "embed_dim": embed_dim, "encoder": encoder_type}
+    tags = {"critic_type": "bi", "embed_dim": embed_dim, "encoder": encoder_type, "variational": variational}
     return critic, params, tags
 
 
@@ -130,6 +133,7 @@ def build_separable_augmented_critic(
     encoder_type: str = "mlp",
     share_encoder: bool = False,
     use_norm: bool = False,
+    variational: bool = False,
     encoder_kwargs: dict = None,
     **kwargs
 ) -> Tuple[nn.Module, Dict[str, Any], Dict[str, Any]]:
@@ -138,12 +142,11 @@ def build_separable_augmented_critic(
     x_kwargs = _prepare_encoder_kwargs(cfg_proxy, "x", activation)
     y_kwargs = _prepare_encoder_kwargs(cfg_proxy, "y", activation)
 
-    encoder_x = make_encoder(encoder_type, input_dim=Nx, embed_dim=embed_dim, **x_kwargs)
+    encoder_x = make_encoder(encoder_type, input_dim=Nx, embed_dim=embed_dim, variational=variational, **x_kwargs)
     if share_encoder:
         encoder_y = encoder_x
     else:
-        encoder_y = make_encoder(encoder_type, input_dim=Ny, embed_dim=embed_dim, **y_kwargs)
-
+        encoder_y = make_encoder(encoder_type, input_dim=Ny, embed_dim=embed_dim, variational=variational, **y_kwargs)
     critic = SeparableAugmentedCritic(
         encoder_x=encoder_x,
         encoder_y=encoder_y,
@@ -157,10 +160,11 @@ def build_separable_augmented_critic(
         "encoder_type": encoder_type,
         "share_encoder": share_encoder,
         "use_norm": use_norm,
+        "variational": variational,
         "encoder_kwargs": encoder_kwargs,
         **kwargs
     }
-    tags = {"critic_type": "separable_augmented", "embed_dim": embed_dim, "quad_kind": quad_kind, "encoder": encoder_type}
+    tags = {"critic_type": "separable_augmented", "embed_dim": embed_dim, "quad_kind": quad_kind, "encoder": encoder_type, "variational": variational}
     return critic, params, tags
 
 
@@ -176,6 +180,7 @@ def build_hybrid_critic(
     share_encoder: bool = False,
     use_norm: bool = False,
     dropout: float = 0.0,
+    variational: bool = False,
     encoder_kwargs: dict = None,
     **kwargs
 ) -> Tuple[nn.Module, Dict[str, Any], Dict[str, Any]]:
@@ -188,12 +193,11 @@ def build_hybrid_critic(
     x_kwargs = _prepare_encoder_kwargs(cfg_proxy, "x", activation)
     y_kwargs = _prepare_encoder_kwargs(cfg_proxy, "y", activation)
 
-    encoder_x = make_encoder(encoder_type, input_dim=Nx, embed_dim=embed_dim, **x_kwargs)
+    encoder_x = make_encoder(encoder_type, input_dim=Nx, embed_dim=embed_dim, variational=variational, **x_kwargs)
     if share_encoder:
         encoder_y = encoder_x
     else:
-        encoder_y = make_encoder(encoder_type, input_dim=Ny, embed_dim=embed_dim, **y_kwargs)
-
+        encoder_y = make_encoder(encoder_type, input_dim=Ny, embed_dim=embed_dim, variational=variational, **y_kwargs)
     # 2. Pair MLP
     hidden_dims = [pair_hidden_dim] * (pair_layers + 1)
     
@@ -216,10 +220,11 @@ def build_hybrid_critic(
         "encoder_type": encoder_type,
         "share_encoder": share_encoder,
         "use_norm": use_norm,
+        "variational": variational,
         "encoder_kwargs": encoder_kwargs,
         **kwargs
     }
-    tags = {"critic_type": "hybrid", "embed_dim": embed_dim, "encoder": encoder_type}
+    tags = {"critic_type": "hybrid", "embed_dim": embed_dim, "encoder": encoder_type, "variational": variational}
     return critic, params, tags
 
 
@@ -232,12 +237,18 @@ def build_concat_critic(
     activation: str = "leaky_relu",
     use_norm: bool = False,
     dropout: float = 0.0,
+    variational: bool = False,
     **kwargs
 ) -> Tuple[nn.Module, Dict[str, Any], Dict[str, Any]]:
     """
     Concat critic typically doesn't use separate encoders, so we ignore encoder_type here
     unless we want to add feature extraction before concatenation later.
     """    
+    if variational:
+        raise ValueError(
+            "Critic type 'concat' does not support variational mode "
+            "because it does not use separate encoders."
+        )
     pair_mlp = mlp(
         dim=Nx + Ny,
         hidden_dim=pair_hidden_dim,

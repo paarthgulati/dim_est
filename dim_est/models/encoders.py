@@ -1,10 +1,11 @@
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 import torchvision.models as models
 import importlib
 from typing import List, Optional, Union, Tuple
 
-# --- CHANGED: Import the robust mlp class ---
+# --- Import the robust mlp classes ---
 from ..utils.networks import mlp
 
 class MLPEncoder(nn.Module):
@@ -15,7 +16,6 @@ class MLPEncoder(nn.Module):
         output_dim: int, 
         layers: int, 
         activation: str = "leaky_relu",
-        # --- NEW: Robustness args ---
         use_norm: bool = False,
         dropout: float = 0.0
     ):
@@ -36,7 +36,7 @@ class MLPEncoder(nn.Module):
         # Flatten if input is > 2D (e.g. image provided to MLP)
         if x.dim() > 2:
             x = x.view(x.size(0), -1)
-        return self.net(x)
+        return self.net(x)        
 
 class ResNetEncoder(nn.Module):
     def __init__(self, output_dim: int, variant: str = "resnet18", pretrained: bool = True):
@@ -134,10 +134,51 @@ def _load_custom_class(class_path: str):
     module = importlib.import_module(module_name)
     return getattr(module, class_name)
 
+
+class VariationalAdapter(nn.Module):
+    def __init__(self, base_encoder: nn.Module, feature_dim: int, embed_dim: int):
+        """
+        Wraps any deterministic encoder to make it variational.
+        Input -> [Base Encoder] -> Feature (h) -> [Heads] -> (z, kl_loss)
+        """
+        super().__init__()
+        self.base_encoder = base_encoder
+        
+        # Variational heads
+        self.fc_mu = nn.Linear(feature_dim, embed_dim)
+        self.fc_logvar = nn.Linear(feature_dim, embed_dim)
+        
+        # Init weights
+        nn.init.xavier_uniform_(self.fc_mu.weight)
+        nn.init.xavier_uniform_(self.fc_logvar.weight)
+
+    def forward(self, x):
+        # 1. Get deterministic features from the backbone
+        h = self.base_encoder(x)
+        
+        # 2. Project to distribution parameters
+        mu = self.fc_mu(h)
+        logvar = self.fc_logvar(h)
+
+        if self.training:
+            # Reparameterization Trick
+            std = torch.exp(0.5 * logvar)
+            eps = torch.randn_like(std)
+            z = mu + eps * std
+            
+            # Analytic KL for standard normal prior N(0, I)
+            # Sum over dimensions, mean over batch
+            kl_loss = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp(), dim=1).mean()
+            return z, kl_loss
+        else:
+            # Deterministic evaluation (return mean, zero KL)
+            return mu, 0.0
+        
 def make_encoder(
     encoder_type: str,
     input_dim: int,
     embed_dim: int,
+    variational: bool = False,
     **kwargs
 ) -> nn.Module:
     """
@@ -150,12 +191,10 @@ def make_encoder(
         hidden_dim = kwargs.get("hidden_dim", 128)
         layers = kwargs.get("layers", 2)
         activation = kwargs.get("activation", "leaky_relu")
-        
-        # --- NEW: Extract robustness args ---
         use_norm = kwargs.get("use_norm", False)
         dropout = kwargs.get("dropout", 0.0)
         
-        return MLPEncoder(
+        enc = MLPEncoder(
             input_dim, 
             hidden_dim, 
             embed_dim, 
@@ -166,31 +205,37 @@ def make_encoder(
         )
     
     elif "resnet" in t:
-        # kwargs: pretrained
         pretrained = kwargs.get("pretrained", True)
-        return ResNetEncoder(embed_dim, variant=t, pretrained=pretrained)
-    
+        enc = ResNetEncoder(embed_dim, variant=t, pretrained=pretrained)
+        
     elif t == "cnn":
         input_channels = kwargs.get("input_channels", 3) 
         channels = kwargs.get("channels", [32, 64, 128])
-        return CNNEncoder(input_channels, embed_dim, channels)
-    
+        enc = CNNEncoder(input_channels, embed_dim, channels)
+        
     elif t in ["gru", "lstm"]:
         hidden_size = kwargs.get("hidden_size", 128)
         num_layers = kwargs.get("num_layers", 1)
-        return RNNEncoder(input_dim, hidden_size, embed_dim, rnn_type=t, num_layers=num_layers)
-    
+        enc = RNNEncoder(input_dim, hidden_size, embed_dim, rnn_type=t, num_layers=num_layers)
+        
     elif t == "transformer":
         nhead = kwargs.get("nhead", 4)
         num_layers = kwargs.get("num_layers", 2)
-        return TransformerEncoder(input_dim, embed_dim, nhead=nhead, num_layers=num_layers)
+        enc = TransformerEncoder(input_dim, embed_dim, nhead=nhead, num_layers=num_layers)
         
     elif t == "custom":
         class_path = kwargs.get("class_path")
         if not class_path:
             raise ValueError("For 'custom' encoder, 'class_path' must be provided in encoder_kwargs.")
         Cls = _load_custom_class(class_path)
-        return Cls(input_dim, embed_dim, **kwargs)
+        enc = Cls(input_dim, embed_dim, **kwargs)
 
     else:
         raise ValueError(f"Unknown encoder_type: {encoder_type}")
+
+    if variational:
+        # Wrap the deterministic encoder. 
+        # Assumes base encoder outputs 'embed_dim' features.
+        enc = VariationalAdapter(base_encoder=enc, feature_dim=embed_dim, embed_dim=embed_dim)
+
+    return enc

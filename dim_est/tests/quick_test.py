@@ -1,4 +1,4 @@
-from dim_est.run.run_dsib_single_experiment import run_dsib_infinite, run_dsib_finite
+from dim_est.dim_est.run.run_single_experiment import run_dsib_infinite, run_dsib_finite
 
 
 def single_finite_run(outfile = "trial_run.h5"):

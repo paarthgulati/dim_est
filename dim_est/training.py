@@ -44,7 +44,6 @@ def calculate_participation_ratio(spectrum, eps=1e-12):
     
     numerator = np.sum(lam) ** 2
     denominator = np.sum(lam ** 2).clip(min=eps)
-
     return numerator / denominator
 
 def evaluate_full_dataset(model, loader, device, max_samples_gpu=5000):
@@ -135,8 +134,18 @@ def compute_covariance_matrices(model, loader_or_data, device, max_samples_gpu=5
 
         with torch.no_grad():
             if hasattr(model, 'critic'):
-                zx = model.critic.encoder_x(x_full)
-                zy = model.critic.encoder_y(y_full)
+                zx_out = model.critic.encoder_x(x_full)
+                zy_out = model.critic.encoder_y(y_full)
+            
+                if isinstance(zx_out, tuple):
+                    zx = zx_out[0]
+                else:
+                    zx = zx_out
+                if isinstance(zy_out, tuple):
+                    zy = zy_out[0]
+                else:
+                    zy = zy_out
+                    
             else:
                 raise AttributeError("Model does not have a 'critic' attribute.")
 
@@ -209,7 +218,7 @@ def train_model_infinite_data(
         x, y = x.to(device), y.to(device)
         
         opt.zero_grad()
-        loss, mi, _ = model(x, y) 
+        loss, mi, extras = model(x, y) 
         loss.backward()
         opt.step()
 
@@ -234,6 +243,8 @@ def train_model_infinite_data(
 
         if show_progress:
             postfix = {"mi": f"{estimator_tr:.4f}"}
+            if "kl_loss" in extras:
+                postfix["KL"] = f"{extras['kl_loss']:.4f}"
             if track_cov_trace and pr_trace_xy:
                  postfix["PR"] = f"{pr_trace_xy[-1]:.2f}"
             iterator.set_postfix(**postfix)
@@ -302,7 +313,7 @@ def train_model_finite_data(
         for x, y in train_loader:
             x, y = x.to(device), y.to(device)
             opt.zero_grad()
-            loss, _, _ = model(x, y) 
+            loss, _, extras = model(x, y) 
             loss.backward()
             opt.step()
         
@@ -337,6 +348,8 @@ def train_model_finite_data(
 
         if show_progress: 
             postfix = {"test_mi": f"{mi_test_curr:.4f}"}
+            if "kl_loss" in extras:
+                postfix["KL"] = f"{extras['kl_loss']:.4f}"
             if track_cov_trace and pr_trace_test:
                 postfix["PR"] = f"{pr_trace_test[-1]:.2f}"
             iterator.set_postfix(**postfix)

@@ -3,6 +3,14 @@ import torch
 import torch.nn as nn
 from ..utils.networks import mlp  # assuming your mlp(dim, hidden_dim, output_dim, layers, activation)
 
+def _unpack_encoder_output(output):
+    """
+    Handles encoders that return tensor (deterministic) or tuple (variational).
+    Returns: (z, kl_loss)
+    """
+    if isinstance(output, tuple):
+        return output[0], output[1]
+    return output, 0.0
 
 class SeparableCritic(nn.Module):
     """
@@ -17,11 +25,13 @@ class SeparableCritic(nn.Module):
 
     def forward(self, x, y):
         # x: [B, Nx], y: [B, Ny]
-        zX = self.encoder_x(x)  # [B, d]
-        zY = self.encoder_y(y)  # [B, d]
-        scores = zY @ zX.t()    # [B, B]
-        return scores
-
+        zX, kl_x = _unpack_encoder_output(self.encoder_x(x))
+        zY, kl_y = _unpack_encoder_output(self.encoder_y(y))
+        
+        scores = zY @ zX.t()
+        
+        # Return scores AND combined KL (DSIB will ignore KL, DVSIB will use it)
+        return scores, kl_x + kl_y
 
 class BiCritic(nn.Module):
     """
@@ -37,12 +47,12 @@ class BiCritic(nn.Module):
         self.bilinear = nn.Linear(embed_dim, embed_dim, bias=False)
 
     def forward(self, x, y):
-        zX = self.encoder_x(x)        # [B, d]
-        zY = self.encoder_y(y)        # [B, d]
-        zX = self.bilinear(zX)        # [B, d]
-        scores = zY @ zX.t()          # [B, B]
-        return scores
-
+        zX, kl_x = _unpack_encoder_output(self.encoder_x(x))
+        zY, kl_y = _unpack_encoder_output(self.encoder_y(y))
+        
+        zX = self.bilinear(zX)
+        scores = zY @ zX.t()
+        return scores, kl_x + kl_y
 
 class SeparableAugmentedCritic(nn.Module):
     """
@@ -73,9 +83,8 @@ class SeparableAugmentedCritic(nn.Module):
             raise ValueError("quad_kind must be one of {'full','diag','scalar'}")
 
     def forward(self, x, y):
-        zX = self.encoder_x(x)  # [B, d]
-        zY = self.encoder_y(y)  # [B, d]
-
+        zX, kl_x = _unpack_encoder_output(self.encoder_x(x))
+        zY, kl_y = _unpack_encoder_output(self.encoder_y(y))
         cross = zY @ zX.t()     # [B, B]
 
         if self.quad_kind == "full":
@@ -93,8 +102,8 @@ class SeparableAugmentedCritic(nn.Module):
             raise ValueError("quad_kind must be one of {'full','diag','scalar'}")
 
         # broadcast into [B, B]
-        return cross + quadY.unsqueeze(1) + quadX.unsqueeze(0)
-
+        scores = cross + quadY.unsqueeze(1) + quadX.unsqueeze(0)
+        return scores, kl_x + kl_y
 
 class HybridCritic(nn.Module):
     """
@@ -111,9 +120,8 @@ class HybridCritic(nn.Module):
 
     def forward(self, x, y):
         B = x.shape[0]
-        zX = self.encoder_x(x)  # [B, d_x]
-        zY = self.encoder_y(y)  # [B, d_y]
-
+        zX, kl_x = _unpack_encoder_output(self.encoder_x(x))
+        zY, kl_y = _unpack_encoder_output(self.encoder_y(y))
         dx = zX.shape[-1]
         dy = zY.shape[-1]
         
@@ -129,7 +137,7 @@ class HybridCritic(nn.Module):
 
         scores_vec = self.pair_mlp(pair_input)           # [B*B, 1] or [B*B]
         scores = scores_vec.view(B, B, -1).squeeze(-1)   # [B, B]
-        return scores
+        return scores, kl_x + kl_y
 
 
 class ConcatCritic(nn.Module):
@@ -153,4 +161,4 @@ class ConcatCritic(nn.Module):
 
         scores_vec = self.pair_mlp(pair_input)         # [B*B, 1] or [B*B]
         scores = scores_vec.view(B, B, -1).squeeze(-1) # [B, B]
-        return scores
+        return scores, 0.0  # No KL divergence since no encoders

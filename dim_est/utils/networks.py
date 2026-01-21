@@ -79,7 +79,6 @@ class mlp(nn.Module):
         out = self.out(x)
         return out    
     
-
 # Teacher model
 class teacher(nn.Module):
     def __init__(self, dz, output_dim):
